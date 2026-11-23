@@ -34,7 +34,7 @@ func _ready() -> void:
 	terrain = Terrain.new(data["water"], data.get("valley_extra", []))
 	var ground := ShaderMaterial.new()
 	ground.shader = TOON
-	ground.set_shader_parameter("albedo", Color("#6F8A55"))
+	ground.set_shader_parameter("albedo", Color("#7C8F62"))
 	ground.set_shader_parameter("grass", true)
 	ground.set_shader_parameter("watercolor", 0.32)
 	terrain.build(self, ground)
@@ -45,7 +45,21 @@ func _ready() -> void:
 	var free_spots: Array = [data["start"]]
 	for st in data["stations"]:
 		free_spots.append(st["pos"])
-	builder.build_trees(data["roads"], data["water"], data["buildings"], 90, 95.0, free_spots)
+	var reserve: Array = free_spots.duplicate()
+	for b in data["buildings"]:
+		if b["id"] == "herrenhaus":
+			var mz := -1e9
+			var cx := 0.0
+			for q in b["footprint"]:
+				mz = maxf(mz, q[1])
+				cx += q[0] / b["footprint"].size()
+			reserve.append([cx, mz + 11.0, 18.0])
+	for st in data["stations"]:
+		if st["id"] == "platz":
+			reserve.append([st["pos"][0] + 5.0, st["pos"][1] - 8.0, 14.0])
+	var extra: Array = builder.infill_houses(data["roads"], data["buildings"], reserve)
+	builder.build_buildings(extra)
+	builder.build_trees(data["roads"], data["water"], data["buildings"] + extra, 90, 95.0, free_spots)
 	for b in data["buildings"]:
 		if b["id"] == "herrenhaus":
 			builder.domaene(b, self)
@@ -78,6 +92,12 @@ func _debug_args() -> void:
 				if s.get_meta("station")["id"] == a.substr(5):
 					player.global_position = s.global_position + Vector3(0, 0.5, 3)
 					player.cam_pivot.global_position = player.global_position + Vector3(0, 2.2, 0)
+		if a.begins_with("--pos="):
+			var xz := a.substr(6).split(",")
+			var px := float(xz[0])
+			var pz := float(xz[1])
+			player.global_position = Vector3(px, terrain.surface(px, pz) + 0.5, pz)
+			player.cam_pivot.global_position = player.global_position + Vector3(0, 2.2, 0)
 		if a == "--read":
 			await get_tree().create_timer(0.5).timeout
 			_interact()

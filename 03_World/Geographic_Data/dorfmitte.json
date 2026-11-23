@@ -490,7 +490,7 @@
    ],
    "height": 9,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "tower": null,
    "landmark": true,
@@ -519,7 +519,7 @@
    ],
    "height": 8,
    "roof": "hip",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "tower": null,
    "landmark": true,
@@ -575,7 +575,7 @@
    ],
    "height": 6.83,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -602,7 +602,7 @@
    ],
    "height": 7.39,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -629,7 +629,7 @@
    ],
    "height": 7.09,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -656,7 +656,7 @@
    ],
    "height": 6.44,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "putz"
   },
@@ -683,7 +683,7 @@
    ],
    "height": 5.63,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -710,7 +710,7 @@
    ],
    "height": 7.81,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -737,7 +737,7 @@
    ],
    "height": 6.78,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -791,7 +791,7 @@
    ],
    "height": 7.77,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -818,7 +818,7 @@
    ],
    "height": 7.59,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -845,7 +845,7 @@
    ],
    "height": 6.24,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -872,7 +872,7 @@
    ],
    "height": 7.84,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -899,7 +899,7 @@
    ],
    "height": 7.69,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#83323A",
    "style": "fachwerk"
   },
@@ -926,7 +926,7 @@
    ],
    "height": 6.9,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -980,7 +980,7 @@
    ],
    "height": 6.41,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#83323A",
    "style": "fachwerk"
   },
@@ -1007,7 +1007,7 @@
    ],
    "height": 7.81,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -1034,7 +1034,7 @@
    ],
    "height": 6.51,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -1061,7 +1061,7 @@
    ],
    "height": 6.56,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#6E2A2C",
    "style": "fachwerk"
   },
@@ -1088,7 +1088,7 @@
    ],
    "height": 7.04,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "putz"
   },
@@ -1115,7 +1115,7 @@
    ],
    "height": 7.09,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#6E2A2C",
    "style": "fachwerk"
   },
@@ -1142,7 +1142,7 @@
    ],
    "height": 6.76,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#83323A",
    "style": "fachwerk"
   },
@@ -1169,7 +1169,7 @@
    ],
    "height": 6.49,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -1196,7 +1196,7 @@
    ],
    "height": 6.97,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -1223,7 +1223,7 @@
    ],
    "height": 6.48,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#6E2A2C",
    "style": "fachwerk"
   },
@@ -1250,7 +1250,7 @@
    ],
    "height": 5.78,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "putz"
   },
@@ -1277,7 +1277,7 @@
    ],
    "height": 6.52,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#83323A",
    "style": "fachwerk"
   },
@@ -1304,7 +1304,7 @@
    ],
    "height": 7.99,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -1331,7 +1331,7 @@
    ],
    "height": 5.86,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -1358,7 +1358,7 @@
    ],
    "height": 5.84,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -1385,7 +1385,7 @@
    ],
    "height": 7.73,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#6E2A2C",
    "style": "fachwerk"
   },
@@ -1412,7 +1412,7 @@
    ],
    "height": 7.4,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#6E2A2C",
    "style": "fachwerk"
   },
@@ -1439,7 +1439,7 @@
    ],
    "height": 6.12,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -1466,7 +1466,7 @@
    ],
    "height": 7.04,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -1493,7 +1493,7 @@
    ],
    "height": 6.72,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -1520,7 +1520,7 @@
    ],
    "height": 7.71,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "putz"
   },
@@ -1547,7 +1547,7 @@
    ],
    "height": 7.74,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -1574,7 +1574,7 @@
    ],
    "height": 5.51,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -1601,7 +1601,7 @@
    ],
    "height": 7.75,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#83323A",
    "style": "fachwerk"
   },
@@ -1628,7 +1628,7 @@
    ],
    "height": 6.91,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -1655,7 +1655,7 @@
    ],
    "height": 6.06,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "putz"
   },
@@ -1709,7 +1709,7 @@
    ],
    "height": 7.29,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#6E2A2C",
    "style": "putz"
   },
@@ -1736,7 +1736,7 @@
    ],
    "height": 5.78,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#83323A",
    "style": "fachwerk"
   },
@@ -1763,7 +1763,7 @@
    ],
    "height": 5.59,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -1790,7 +1790,7 @@
    ],
    "height": 7.98,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -1817,7 +1817,7 @@
    ],
    "height": 6.55,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#83323A",
    "style": "fachwerk"
   },
@@ -1844,7 +1844,7 @@
    ],
    "height": 6.38,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#6E2A2C",
    "style": "fachwerk"
   },
@@ -1871,7 +1871,7 @@
    ],
    "height": 6.34,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -1898,7 +1898,7 @@
    ],
    "height": 6,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#6E2A2C",
    "style": "fachwerk"
   },
@@ -1925,7 +1925,7 @@
    ],
    "height": 7.99,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -1952,7 +1952,7 @@
    ],
    "height": 7.8,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -1979,7 +1979,7 @@
    ],
    "height": 5.84,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -2006,7 +2006,7 @@
    ],
    "height": 7.43,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#6E2A2C",
    "style": "fachwerk"
   },
@@ -2060,7 +2060,7 @@
    ],
    "height": 7.16,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -2087,7 +2087,7 @@
    ],
    "height": 6.77,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -2114,7 +2114,7 @@
    ],
    "height": 7.38,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#83323A",
    "style": "fachwerk"
   },
@@ -2141,7 +2141,7 @@
    ],
    "height": 6.85,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#83323A",
    "style": "putz"
   },
@@ -2168,7 +2168,7 @@
    ],
    "height": 6.23,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#83323A",
    "style": "fachwerk"
   },
@@ -2195,7 +2195,7 @@
    ],
    "height": 6.57,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -2249,7 +2249,7 @@
    ],
    "height": 5.56,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -2276,7 +2276,7 @@
    ],
    "height": 7.31,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -2303,7 +2303,7 @@
    ],
    "height": 5.84,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "putz"
   },
@@ -2330,7 +2330,7 @@
    ],
    "height": 7.01,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -2357,7 +2357,7 @@
    ],
    "height": 5.83,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -2384,7 +2384,7 @@
    ],
    "height": 6.11,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
@@ -2411,7 +2411,7 @@
    ],
    "height": 6.56,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -2438,7 +2438,7 @@
    ],
    "height": 6.49,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
@@ -2465,7 +2465,7 @@
    ],
    "height": 6.08,
    "roof": "gable",
-   "wall": "#FAF9F6",
+   "wall": "#F1EADB",
    "roof_color": "#8A3A36",
    "style": "fachwerk"
   }
