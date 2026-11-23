@@ -81,6 +81,12 @@ func request_jump() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		cam_yaw -= event.relative.x * 0.006
+	# Mausrad: Zoom
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			spring.spring_length = clampf(spring.spring_length - 0.8, 3.5, 18.0)
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			spring.spring_length = clampf(spring.spring_length + 0.8, 3.5, 18.0)
 
 func _physics_process(delta: float) -> void:
 	cam_yaw += (Input.get_action_strength("cam_left") - Input.get_action_strength("cam_right")) * 2.2 * delta

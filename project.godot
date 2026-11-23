@@ -8,7 +8,7 @@ config_version=5
 config/name="Scribbler1120 – Adorf entdecken"
 config/description="Jump & Run mit dem Schreiberling durch Adorf, gezeichnet im Scribbler1120-Stil."
 run/main_scene="res://02_Game/Scenes/Main.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]

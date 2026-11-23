@@ -9,7 +9,7 @@ Neueste Version im Browser (auch am Handy): https://jcmeier86-droid.github.io/sc
 Windows-Version zum Herunterladen: unter „Actions“ den neuesten Lauf öffnen → „Scribbler1120-Windows“.
 
 ## Lokal starten
-1. Godot 4.3 (oder neuer 4.x) von godotengine.org laden.
+1. Godot 4.7.2 (Standardversion ohne .NET) von godotengine.org laden.
 2. Godot öffnen → „Importieren“ → diesen Ordner wählen → Abspielen (F5).
 
 Steuerung: WASD/Pfeile laufen · Leertaste springen · Enter/F Geschichte lesen · Q/E oder rechte Maustaste Kamera drehen · Gamepad geht auch.

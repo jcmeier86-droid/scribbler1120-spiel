@@ -1,6 +1,6 @@
 # Technischer Aufbau (Meilenstein 1)
 
-- Godot 4.3, Renderer „Compatibility“ (läuft im Browser und auf Handys)
+- Godot 4.7.2, Renderer „Compatibility“ (läuft im Browser und auf Handys)
 - `02_Game/Scenes/Main.tscn` + `Scripts/main.gd`: lädt einen Ortsteil aus `03_World/Geographic_Data/*.json`
 - `terrain.gd`: Gelände (Talkessel-Schätzung) mit Kollision; `surface()` liefert die exakte Bodenhöhe
 - `world_builder.gd`: Straßen, Bäche, Gebäude als 3D-Körper (Fassadenbild oder Fachwerk-Textur), Kirche als Basilika mit Turm, Plattformen, Stationen, Federn
