@@ -1,0 +1,2564 @@
+{
+ "area": "dorfmitte",
+ "name": "Dorfmitte",
+ "source": "Lage nach OpenStreetMap (© OpenStreetMap-Mitwirkende), Gebäude vereinfacht; Beispieldaten aus dem Browser-Prototyp; Dachfarben und Fachwerkanteil nach Luftbildern der Ortsmitte",
+ "units": "Meter, x nach Osten, z nach Süden",
+ "start": [
+  -30.24,
+  -25.2
+ ],
+ "valley_extra": [
+  [
+   [
+    -97,
+    -114
+   ],
+   [
+    -200,
+    -260
+   ]
+  ],
+  [
+   [
+    94,
+    135
+   ],
+   [
+    200,
+    300
+   ]
+  ],
+  [
+   [
+    -97,
+    -4
+   ],
+   [
+    -260,
+    120
+   ]
+  ]
+ ],
+ "roads": [
+  {
+   "name": "Bredelarer Straße",
+   "width": 7,
+   "main": true,
+   "points": [
+    [
+     -64.8,
+     -149.4
+    ],
+    [
+     -54.9,
+     -124.2
+    ],
+    [
+     -45.9,
+     -95.4
+    ],
+    [
+     -39.6,
+     -75.6
+    ]
+   ]
+  },
+  {
+   "name": "Arolser Straße",
+   "width": 7,
+   "main": true,
+   "points": [
+    [
+     -39.6,
+     -75.6
+    ],
+    [
+     -21.6,
+     -75.24
+    ],
+    [
+     3.6,
+     -70.2
+    ],
+    [
+     28.8,
+     -63.9
+    ],
+    [
+     46.8,
+     -73.8
+    ],
+    [
+     59.4,
+     -99
+    ],
+    [
+     70.2,
+     -127.8
+    ],
+    [
+     97.2,
+     -147.6
+    ]
+   ]
+  },
+  {
+   "name": "Hauptstraße",
+   "width": 7,
+   "main": true,
+   "points": [
+    [
+     -39.6,
+     -75.6
+    ],
+    [
+     -41.04,
+     -57.6
+    ],
+    [
+     -48.24,
+     -37.8
+    ],
+    [
+     -61.2,
+     -21.6
+    ],
+    [
+     -81,
+     -9
+    ],
+    [
+     -97.2,
+     -3.6
+    ]
+   ]
+  },
+  {
+   "name": "Gartenstraße",
+   "width": 5.5,
+   "main": false,
+   "points": [
+    [
+     -97.2,
+     -34.2
+    ],
+    [
+     -75.6,
+     -55.8
+    ],
+    [
+     -54,
+     -69.84
+    ],
+    [
+     -39.6,
+     -74.7
+    ]
+   ]
+  },
+  {
+   "name": "Hauptstraße",
+   "width": 6,
+   "main": false,
+   "points": [
+    [
+     -86.4,
+     -8.1
+    ],
+    [
+     -77.4,
+     14.4
+    ],
+    [
+     -66.6,
+     37.8
+    ],
+    [
+     -55.8,
+     59.4
+    ],
+    [
+     -37.8,
+     77.4
+    ],
+    [
+     -14.4,
+     95.4
+    ],
+    [
+     3.6,
+     113.4
+    ],
+    [
+     18,
+     133.2
+    ],
+    [
+     32.4,
+     153
+    ]
+   ]
+  },
+  {
+   "name": "Am Kahlenberg",
+   "width": 5.5,
+   "main": false,
+   "points": [
+    [
+     -25.2,
+     82.8
+    ],
+    [
+     -12.6,
+     55.8
+    ],
+    [
+     -1.8,
+     27
+    ],
+    [
+     0,
+     9
+    ],
+    [
+     14.4,
+     -1.8
+    ],
+    [
+     41.4,
+     -18.9
+    ]
+   ]
+  },
+  {
+   "name": "Am Kahlenberg",
+   "width": 5.5,
+   "main": false,
+   "points": [
+    [
+     -0.9,
+     32.4
+    ],
+    [
+     28.8,
+     30.6
+    ],
+    [
+     57.6,
+     25.2
+    ]
+   ]
+  },
+  {
+   "name": "Bergstraße",
+   "width": 5.5,
+   "main": false,
+   "points": [
+    [
+     -25.2,
+     -145.8
+    ],
+    [
+     10.8,
+     -147.6
+    ],
+    [
+     57.6,
+     -140.4
+    ]
+   ]
+  },
+  {
+   "name": "Hauptstraße",
+   "width": 5,
+   "main": false,
+   "points": [
+    [
+     29.7,
+     -63
+    ],
+    [
+     39.6,
+     -36
+    ],
+    [
+     46.8,
+     -9
+    ],
+    [
+     52.2,
+     9
+    ],
+    [
+     59.4,
+     30.6
+    ],
+    [
+     68.4,
+     55.8
+    ],
+    [
+     79.2,
+     81
+    ],
+    [
+     97.2,
+     113.4
+    ]
+   ]
+  },
+  {
+   "name": "Hauptstraße",
+   "width": 4,
+   "main": false,
+   "points": [
+    [
+     -65.7,
+     45
+    ],
+    [
+     -28.8,
+     41.76
+    ]
+   ]
+  },
+  {
+   "name": "Winkelkamp",
+   "width": 5,
+   "main": false,
+   "points": [
+    [
+     -97.2,
+     127.8
+    ],
+    [
+     -52.2,
+     117
+    ],
+    [
+     -3.6,
+     110.16
+    ]
+   ]
+  },
+  {
+   "name": "Schöne Aussicht",
+   "width": 5,
+   "main": false,
+   "points": [
+    [
+     -3.6,
+     110.16
+    ],
+    [
+     -1.44,
+     153
+    ]
+   ]
+  }
+ ],
+ "water": [
+  {
+   "name": "Bicke",
+   "points": [
+    [
+     -37.8,
+     -56.7
+    ],
+    [
+     -21.6,
+     -53.1
+    ],
+    [
+     3.6,
+     -43.2
+    ],
+    [
+     28.8,
+     -31.5
+    ],
+    [
+     39.6,
+     -18
+    ],
+    [
+     46.8,
+     5.4
+    ],
+    [
+     55.8,
+     36
+    ],
+    [
+     64.8,
+     63
+    ],
+    [
+     75.6,
+     99
+    ],
+    [
+     93.6,
+     135
+    ]
+   ]
+  },
+  {
+   "name": "Bicke",
+   "points": [
+    [
+     -97.2,
+     -114.3
+    ],
+    [
+     -75.6,
+     -117
+    ],
+    [
+     -56.16,
+     -112.5
+    ],
+    [
+     -50.04,
+     -88.2
+    ],
+    [
+     -47.16,
+     -62.1
+    ],
+    [
+     -37.8,
+     -56.7
+    ]
+   ]
+  }
+ ],
+ "buildings": [
+  {
+   "id": "kirche",
+   "name": "St.-Johannis-Kirche",
+   "footprint": [
+    [
+     -60.5,
+     -2.4
+    ],
+    [
+     -29.5,
+     -2.4
+    ],
+    [
+     -29.5,
+     9.6
+    ],
+    [
+     -60.5,
+     9.6
+    ]
+   ],
+   "height": 11,
+   "roof": "gable",
+   "wall": "#E3DDCF",
+   "roof_color": "#5C5B57",
+   "tower": {
+    "side": "west",
+    "w": 8,
+    "h": 24
+   },
+   "landmark": true
+  },
+  {
+   "id": "gemeindeamt",
+   "name": "Gemeindeamt",
+   "footprint": [
+    [
+     18.7,
+     1.2
+    ],
+    [
+     40.7,
+     1.2
+    ],
+    [
+     40.7,
+     13.2
+    ],
+    [
+     18.7,
+     13.2
+    ]
+   ],
+   "height": 9,
+   "roof": "gable",
+   "wall": "#F3EFE6",
+   "roof_color": "#C8643C",
+   "tower": null,
+   "landmark": true,
+   "style": "fachwerk"
+  },
+  {
+   "id": "herrenhaus",
+   "name": "Hofdomäne – Haupthaus (Lage nach Luftbild geschätzt)",
+   "footprint": [
+    [
+     0.8,
+     -27.1
+    ],
+    [
+     20.8,
+     -27.1
+    ],
+    [
+     20.8,
+     -16.1
+    ],
+    [
+     0.8,
+     -16.1
+    ]
+   ],
+   "height": 8,
+   "roof": "hip",
+   "wall": "#FAF9F6",
+   "roof_color": "#C8643C",
+   "tower": null,
+   "landmark": true
+  },
+  {
+   "id": "haus_1",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -10.59,
+     -130.8
+    ],
+    [
+     -18.58,
+     -130.4
+    ],
+    [
+     -19.17,
+     -142.15
+    ],
+    [
+     -11.18,
+     -142.55
+    ]
+   ],
+   "height": 6.22,
+   "roof": "gable",
+   "wall": "#EEE6D6",
+   "roof_color": "#B9572F",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_2",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     8.33,
+     -132.32
+    ],
+    [
+     -0.3,
+     -131.89
+    ],
+    [
+     -0.85,
+     -143.06
+    ],
+    [
+     7.77,
+     -143.49
+    ]
+   ],
+   "height": 6.83,
+   "roof": "gable",
+   "wall": "#FAF9F6",
+   "roof_color": "#A94F2E",
+   "style": "putz",
+   "solar": true
+  },
+  {
+   "id": "haus_3",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     19.56,
+     -130.87
+    ],
+    [
+     10.67,
+     -132.23
+    ],
+    [
+     12.39,
+     -143.36
+    ],
+    [
+     21.27,
+     -141.99
+    ]
+   ],
+   "height": 7.39,
+   "roof": "gable",
+   "wall": "#EFE7D6",
+   "roof_color": "#A94F2E",
+   "style": "putz"
+  },
+  {
+   "id": "haus_4",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     32.82,
+     -129.03
+    ],
+    [
+     23.31,
+     -130.5
+    ],
+    [
+     24.99,
+     -141.42
+    ],
+    [
+     34.5,
+     -139.96
+    ]
+   ],
+   "height": 7.09,
+   "roof": "gable",
+   "wall": "#EEE6D6",
+   "roof_color": "#C8643C",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_5",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     49.42,
+     -125.8
+    ],
+    [
+     39.1,
+     -127.39
+    ],
+    [
+     40.58,
+     -137
+    ],
+    [
+     50.9,
+     -135.41
+    ]
+   ],
+   "height": 6.44,
+   "roof": "gable",
+   "wall": "#F3EFE6",
+   "roof_color": "#D47546",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_6",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -7.27,
+     -106.31
+    ],
+    [
+     -17.38,
+     -105.81
+    ],
+    [
+     -17.93,
+     -116.89
+    ],
+    [
+     -7.82,
+     -117.39
+    ]
+   ],
+   "height": 5.63,
+   "roof": "gable",
+   "wall": "#F3EFE6",
+   "roof_color": "#C8643C",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_7",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     5.28,
+     -112.06
+    ],
+    [
+     -4.76,
+     -111.55
+    ],
+    [
+     -5.28,
+     -121.94
+    ],
+    [
+     4.76,
+     -122.45
+    ]
+   ],
+   "height": 7.81,
+   "roof": "gable",
+   "wall": "#F1EEE6",
+   "roof_color": "#D47546",
+   "style": "putz",
+   "solar": true
+  },
+  {
+   "id": "haus_8",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     6.8,
+     -106.55
+    ],
+    [
+     16.95,
+     -104.17
+    ],
+    [
+     14.8,
+     -95.05
+    ],
+    [
+     4.65,
+     -97.43
+    ]
+   ],
+   "height": 6.78,
+   "roof": "gable",
+   "wall": "#EFE7D6",
+   "roof_color": "#D47546",
+   "style": "putz",
+   "solar": true
+  },
+  {
+   "id": "haus_9",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     31.48,
+     -108.91
+    ],
+    [
+     20.84,
+     -110.55
+    ],
+    [
+     22.52,
+     -121.49
+    ],
+    [
+     33.16,
+     -119.85
+    ]
+   ],
+   "height": 7.11,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#C96A40",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_10",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     34.2,
+     -105.5
+    ],
+    [
+     37.61,
+     -114.62
+    ],
+    [
+     48.6,
+     -110.5
+    ],
+    [
+     45.19,
+     -101.38
+    ]
+   ],
+   "height": 7.77,
+   "roof": "gable",
+   "wall": "#F3EFE6",
+   "roof_color": "#C96A40",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_11",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     48.32,
+     -111.34
+    ],
+    [
+     51.52,
+     -119.87
+    ],
+    [
+     60.89,
+     -116.36
+    ],
+    [
+     57.69,
+     -107.82
+    ]
+   ],
+   "height": 7.59,
+   "roof": "gable",
+   "wall": "#EEE6D6",
+   "roof_color": "#A94F2E",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_12",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -33.2,
+     -91.22
+    ],
+    [
+     -24.21,
+     -91.04
+    ],
+    [
+     -24.4,
+     -81.58
+    ],
+    [
+     -33.39,
+     -81.76
+    ]
+   ],
+   "height": 6.24,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#D47546",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_13",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -17.98,
+     -97.56
+    ],
+    [
+     -8.88,
+     -95.74
+    ],
+    [
+     -10.82,
+     -86.04
+    ],
+    [
+     -19.92,
+     -87.86
+    ]
+   ],
+   "height": 7.84,
+   "roof": "gable",
+   "wall": "#EFE7D6",
+   "roof_color": "#C96A40",
+   "style": "putz"
+  },
+  {
+   "id": "haus_14",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     7.47,
+     -94.8
+    ],
+    [
+     16.85,
+     -92.45
+    ],
+    [
+     14.13,
+     -81.6
+    ],
+    [
+     4.75,
+     -83.95
+    ]
+   ],
+   "height": 7.69,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#C96A40",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_15",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     20.63,
+     -86.76
+    ],
+    [
+     28.56,
+     -84.77
+    ],
+    [
+     26.17,
+     -75.24
+    ],
+    [
+     18.24,
+     -77.23
+    ]
+   ],
+   "height": 6.9,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#C96A40",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_16",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     28.38,
+     -93.43
+    ],
+    [
+     32.64,
+     -101.96
+    ],
+    [
+     41.82,
+     -97.37
+    ],
+    [
+     37.56,
+     -88.84
+    ]
+   ],
+   "height": 5.98,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#B9572F",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_17",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -81.97,
+     -92.51
+    ],
+    [
+     -85.17,
+     -102.75
+    ],
+    [
+     -76.43,
+     -105.49
+    ],
+    [
+     -73.23,
+     -95.25
+    ]
+   ],
+   "height": 6.41,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#C8643C",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_18",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -93.18,
+     -83.15
+    ],
+    [
+     -85.61,
+     -88.07
+    ],
+    [
+     -79.62,
+     -78.85
+    ],
+    [
+     -87.19,
+     -73.93
+    ]
+   ],
+   "height": 7.81,
+   "roof": "gable",
+   "wall": "#E9E2D2",
+   "roof_color": "#D47546",
+   "style": "putz"
+  },
+  {
+   "id": "haus_19",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -78.59,
+     -71.58
+    ],
+    [
+     -70.59,
+     -76.78
+    ],
+    [
+     -65.41,
+     -68.82
+    ],
+    [
+     -73.41,
+     -63.62
+    ]
+   ],
+   "height": 6.51,
+   "roof": "gable",
+   "wall": "#F1EEE6",
+   "roof_color": "#B9572F",
+   "style": "putz",
+   "solar": true
+  },
+  {
+   "id": "haus_20",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -64.67,
+     -82.45
+    ],
+    [
+     -67.35,
+     -90.89
+    ],
+    [
+     -57.73,
+     -93.95
+    ],
+    [
+     -55.05,
+     -85.51
+    ]
+   ],
+   "height": 6.56,
+   "roof": "gable",
+   "wall": "#E9E2D2",
+   "roof_color": "#B9572F",
+   "style": "putz",
+   "solar": true
+  },
+  {
+   "id": "haus_21",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -80.69,
+     -118.08
+    ],
+    [
+     -83.98,
+     -126.45
+    ],
+    [
+     -74.11,
+     -130.32
+    ],
+    [
+     -70.82,
+     -121.95
+    ]
+   ],
+   "height": 7.04,
+   "roof": "gable",
+   "wall": "#EEE6D6",
+   "roof_color": "#D47546",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_22",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -99.21,
+     -60.18
+    ],
+    [
+     -92.58,
+     -66.81
+    ],
+    [
+     -84.39,
+     -58.62
+    ],
+    [
+     -91.02,
+     -51.99
+    ]
+   ],
+   "height": 7.09,
+   "roof": "gable",
+   "wall": "#F1EEE6",
+   "roof_color": "#D47546",
+   "style": "putz"
+  },
+  {
+   "id": "haus_23",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -62.75,
+     -48.15
+    ],
+    [
+     -69.75,
+     -41.15
+    ],
+    [
+     -77.21,
+     -48.61
+    ],
+    [
+     -70.21,
+     -55.61
+    ]
+   ],
+   "height": 6.76,
+   "roof": "gable",
+   "wall": "#F1EEE6",
+   "roof_color": "#C8643C",
+   "style": "putz",
+   "solar": true
+  },
+  {
+   "id": "haus_24",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -77.96,
+     -35.76
+    ],
+    [
+     -71.67,
+     -43.62
+    ],
+    [
+     -62.44,
+     -36.24
+    ],
+    [
+     -68.73,
+     -28.38
+    ]
+   ],
+   "height": 6.49,
+   "roof": "gable",
+   "wall": "#F1EEE6",
+   "roof_color": "#C96A40",
+   "style": "putz",
+   "solar": true
+  },
+  {
+   "id": "haus_25",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -79.37,
+     -27.13
+    ],
+    [
+     -86.53,
+     -19.97
+    ],
+    [
+     -93.43,
+     -26.87
+    ],
+    [
+     -86.27,
+     -34.03
+    ]
+   ],
+   "height": 6.97,
+   "roof": "gable",
+   "wall": "#F3EFE6",
+   "roof_color": "#B9572F",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_26",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -87.73,
+     8.71
+    ],
+    [
+     -96.31,
+     11.57
+    ],
+    [
+     -99.47,
+     2.09
+    ],
+    [
+     -90.89,
+     -0.77
+    ]
+   ],
+   "height": 6.48,
+   "roof": "gable",
+   "wall": "#F3EFE6",
+   "roof_color": "#C8643C",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_27",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -97.07,
+     26.78
+    ],
+    [
+     -100.93,
+     17.14
+    ],
+    [
+     -90.13,
+     12.82
+    ],
+    [
+     -86.27,
+     22.46
+    ]
+   ],
+   "height": 5.78,
+   "roof": "gable",
+   "wall": "#EFE7D6",
+   "roof_color": "#D47546",
+   "style": "putz",
+   "solar": true
+  },
+  {
+   "id": "haus_28",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -93.8,
+     39.08
+    ],
+    [
+     -98.18,
+     29.59
+    ],
+    [
+     -89.8,
+     25.72
+    ],
+    [
+     -85.42,
+     35.21
+    ]
+   ],
+   "height": 6.52,
+   "roof": "gable",
+   "wall": "#F3EFE6",
+   "roof_color": "#D47546",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_29",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -81.62,
+     41.78
+    ],
+    [
+     -85.16,
+     34.09
+    ],
+    [
+     -76.78,
+     30.22
+    ],
+    [
+     -73.24,
+     37.91
+    ]
+   ],
+   "height": 7.99,
+   "roof": "gable",
+   "wall": "#F4E7C8",
+   "roof_color": "#A94F2E",
+   "style": "putz"
+  },
+  {
+   "id": "haus_30",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -85.31,
+     54.06
+    ],
+    [
+     -87.3,
+     45.63
+    ],
+    [
+     -76.69,
+     43.14
+    ],
+    [
+     -74.7,
+     51.57
+    ]
+   ],
+   "height": 5.86,
+   "roof": "gable",
+   "wall": "#F3EFE6",
+   "roof_color": "#C8643C",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_31",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -76.52,
+     67.8
+    ],
+    [
+     -80.72,
+     59.42
+    ],
+    [
+     -71.08,
+     54.6
+    ],
+    [
+     -66.88,
+     62.98
+    ]
+   ],
+   "height": 5.84,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#A94F2E",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_32",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -72.78,
+     81.69
+    ],
+    [
+     -79.93,
+     73.65
+    ],
+    [
+     -71.22,
+     65.91
+    ],
+    [
+     -64.07,
+     73.95
+    ]
+   ],
+   "height": 7.73,
+   "roof": "gable",
+   "wall": "#F1EEE6",
+   "roof_color": "#A94F2E",
+   "style": "putz"
+  },
+  {
+   "id": "haus_33",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -74.18,
+     96.11
+    ],
+    [
+     -81.71,
+     88.58
+    ],
+    [
+     -73.42,
+     80.29
+    ],
+    [
+     -65.89,
+     87.82
+    ]
+   ],
+   "height": 7.4,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#C8643C",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_34",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -75.55,
+     101.04
+    ],
+    [
+     -66.96,
+     98.98
+    ],
+    [
+     -64.85,
+     107.76
+    ],
+    [
+     -73.44,
+     109.82
+    ]
+   ],
+   "height": 6.12,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#B9572F",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_35",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -59.77,
+     98.93
+    ],
+    [
+     -51.69,
+     97.42
+    ],
+    [
+     -50.03,
+     106.27
+    ],
+    [
+     -58.11,
+     107.78
+    ]
+   ],
+   "height": 7.04,
+   "roof": "gable",
+   "wall": "#E9E2D2",
+   "roof_color": "#D47546",
+   "style": "putz"
+  },
+  {
+   "id": "haus_36",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -53.99,
+     88.04
+    ],
+    [
+     -60.14,
+     81.89
+    ],
+    [
+     -52.21,
+     73.96
+    ],
+    [
+     -46.06,
+     80.11
+    ]
+   ],
+   "height": 6.72,
+   "roof": "gable",
+   "wall": "#FAF9F6",
+   "roof_color": "#A94F2E",
+   "style": "putz",
+   "solar": true
+  },
+  {
+   "id": "haus_37",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -30.05,
+     101.14
+    ],
+    [
+     -38.03,
+     95
+    ],
+    [
+     -32.1,
+     87.3
+    ],
+    [
+     -24.13,
+     93.44
+    ]
+   ],
+   "height": 7.71,
+   "roof": "gable",
+   "wall": "#F4E7C8",
+   "roof_color": "#C8643C",
+   "style": "putz"
+  },
+  {
+   "id": "haus_38",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -33.45,
+     61.5
+    ],
+    [
+     -27.3,
+     67.65
+    ],
+    [
+     -34.45,
+     74.81
+    ],
+    [
+     -40.61,
+     68.65
+    ]
+   ],
+   "height": 7.74,
+   "roof": "gable",
+   "wall": "#F4E7C8",
+   "roof_color": "#B9572F",
+   "style": "putz"
+  },
+  {
+   "id": "haus_39",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -53.61,
+     -8.45
+    ],
+    [
+     -60.66,
+     -3.97
+    ],
+    [
+     -66.28,
+     -12.8
+    ],
+    [
+     -59.23,
+     -17.28
+    ]
+   ],
+   "height": 5.51,
+   "roof": "gable",
+   "wall": "#F3EFE6",
+   "roof_color": "#B9572F",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_40",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -61.56,
+     30.16
+    ],
+    [
+     -50.83,
+     29.22
+    ],
+    [
+     -50.04,
+     38.24
+    ],
+    [
+     -60.77,
+     39.18
+    ]
+   ],
+   "height": 7.75,
+   "roof": "gable",
+   "wall": "#EFE7D6",
+   "roof_color": "#C8643C",
+   "style": "putz"
+  },
+  {
+   "id": "haus_41",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -44.39,
+     25.04
+    ],
+    [
+     -35.85,
+     24.3
+    ],
+    [
+     -34.81,
+     36.16
+    ],
+    [
+     -43.35,
+     36.9
+    ]
+   ],
+   "height": 6.91,
+   "roof": "gable",
+   "wall": "#F1EEE6",
+   "roof_color": "#A94F2E",
+   "style": "putz"
+  },
+  {
+   "id": "haus_42",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -37.54,
+     55.7
+    ],
+    [
+     -47.54,
+     56.57
+    ],
+    [
+     -48.4,
+     46.81
+    ],
+    [
+     -38.4,
+     45.93
+    ]
+   ],
+   "height": 6.06,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#B9572F",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_43",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -28.35,
+     -17.45
+    ],
+    [
+     -21.8,
+     -23.07
+    ],
+    [
+     -14.85,
+     -14.95
+    ],
+    [
+     -21.4,
+     -9.33
+    ]
+   ],
+   "height": 5.63,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#C8643C",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_44",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -24.04,
+     13.58
+    ],
+    [
+     -23.01,
+     3.32
+    ],
+    [
+     -11.96,
+     4.42
+    ],
+    [
+     -12.99,
+     14.68
+    ]
+   ],
+   "height": 7.29,
+   "roof": "gable",
+   "wall": "#E9E2D2",
+   "roof_color": "#B9572F",
+   "style": "putz"
+  },
+  {
+   "id": "haus_45",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -21.23,
+     27.15
+    ],
+    [
+     -17.89,
+     18.26
+    ],
+    [
+     -9.37,
+     21.45
+    ],
+    [
+     -12.71,
+     30.34
+    ]
+   ],
+   "height": 5.78,
+   "roof": "gable",
+   "wall": "#F3EFE6",
+   "roof_color": "#A94F2E",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_46",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -29.17,
+     54.34
+    ],
+    [
+     -24.91,
+     45.22
+    ],
+    [
+     -14.33,
+     50.16
+    ],
+    [
+     -18.58,
+     59.28
+    ]
+   ],
+   "height": 5.59,
+   "roof": "gable",
+   "wall": "#EEE6D6",
+   "roof_color": "#D47546",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_47",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -8.51,
+     -53.58
+    ],
+    [
+     -18.96,
+     -55.66
+    ],
+    [
+     -16.69,
+     -67.02
+    ],
+    [
+     -6.24,
+     -64.94
+    ]
+   ],
+   "height": 7.98,
+   "roof": "gable",
+   "wall": "#E9E2D2",
+   "roof_color": "#B9572F",
+   "style": "putz"
+  },
+  {
+   "id": "haus_48",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -20.78,
+     -57.25
+    ],
+    [
+     -31.64,
+     -57.46
+    ],
+    [
+     -31.42,
+     -68.75
+    ],
+    [
+     -20.56,
+     -68.54
+    ]
+   ],
+   "height": 6.55,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#B9572F",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_49",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     19.18,
+     -40.33
+    ],
+    [
+     8.83,
+     -42.91
+    ],
+    [
+     11.42,
+     -53.27
+    ],
+    [
+     21.77,
+     -50.69
+    ]
+   ],
+   "height": 6.38,
+   "roof": "gable",
+   "wall": "#EEE6D6",
+   "roof_color": "#C96A40",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_50",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     46.02,
+     -61.79
+    ],
+    [
+     49.42,
+     -52.53
+    ],
+    [
+     38.9,
+     -48.67
+    ],
+    [
+     35.5,
+     -57.93
+    ]
+   ],
+   "height": 6.34,
+   "roof": "gable",
+   "wall": "#FAF9F6",
+   "roof_color": "#A94F2E",
+   "style": "putz"
+  },
+  {
+   "id": "haus_51",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     5.36,
+     17.78
+    ],
+    [
+     15.52,
+     17.16
+    ],
+    [
+     16.14,
+     27.41
+    ],
+    [
+     5.98,
+     28.03
+    ]
+   ],
+   "height": 6,
+   "roof": "gable",
+   "wall": "#EEE6D6",
+   "roof_color": "#C8643C",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_52",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     27.84,
+     46.59
+    ],
+    [
+     18.92,
+     47.13
+    ],
+    [
+     18.19,
+     35.2
+    ],
+    [
+     27.11,
+     34.66
+    ]
+   ],
+   "height": 7.99,
+   "roof": "gable",
+   "wall": "#EEE6D6",
+   "roof_color": "#B9572F",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_53",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     42.83,
+     49.8
+    ],
+    [
+     33.11,
+     51.62
+    ],
+    [
+     30.97,
+     40.2
+    ],
+    [
+     40.69,
+     38.38
+    ]
+   ],
+   "height": 7.8,
+   "roof": "gable",
+   "wall": "#EFE7D6",
+   "roof_color": "#A94F2E",
+   "style": "putz"
+  },
+  {
+   "id": "haus_54",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     29.82,
+     70
+    ],
+    [
+     21.24,
+     70.52
+    ],
+    [
+     20.58,
+     59.6
+    ],
+    [
+     29.16,
+     59.08
+    ]
+   ],
+   "height": 5.84,
+   "roof": "gable",
+   "wall": "#EEE6D6",
+   "roof_color": "#C96A40",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_55",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -3.96,
+     71.76
+    ],
+    [
+     -7.97,
+     80.36
+    ],
+    [
+     -17.64,
+     75.84
+    ],
+    [
+     -13.63,
+     67.24
+    ]
+   ],
+   "height": 7.43,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#D47546",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_56",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     -10.11,
+     79.86
+    ],
+    [
+     -1.52,
+     86.46
+    ],
+    [
+     -7.89,
+     94.74
+    ],
+    [
+     -16.48,
+     88.14
+    ]
+   ],
+   "height": 5.97,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#A94F2E",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_57",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     3.66,
+     87.84
+    ],
+    [
+     10.26,
+     94.44
+    ],
+    [
+     3.54,
+     101.16
+    ],
+    [
+     -3.06,
+     94.56
+    ]
+   ],
+   "height": 7.16,
+   "roof": "gable",
+   "wall": "#EEE6D6",
+   "roof_color": "#B9572F",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_58",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     22.21,
+     108.19
+    ],
+    [
+     27.83,
+     115.93
+    ],
+    [
+     19.19,
+     122.21
+    ],
+    [
+     13.57,
+     114.47
+    ]
+   ],
+   "height": 6.77,
+   "roof": "gable",
+   "wall": "#EFE7D6",
+   "roof_color": "#B9572F",
+   "style": "putz"
+  },
+  {
+   "id": "haus_59",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     10.17,
+     126.35
+    ],
+    [
+     10.69,
+     136.61
+    ],
+    [
+     0.61,
+     137.12
+    ],
+    [
+     0.09,
+     126.86
+    ]
+   ],
+   "height": 7.38,
+   "roof": "gable",
+   "wall": "#E9E2D2",
+   "roof_color": "#C8643C",
+   "style": "putz"
+  },
+  {
+   "id": "haus_60",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     35.83,
+     110.82
+    ],
+    [
+     40.58,
+     117.36
+    ],
+    [
+     32.57,
+     123.18
+    ],
+    [
+     27.82,
+     116.64
+    ]
+   ],
+   "height": 6.85,
+   "roof": "gable",
+   "wall": "#F1EEE6",
+   "roof_color": "#A94F2E",
+   "style": "putz"
+  },
+  {
+   "id": "haus_61",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     59.52,
+     -19.01
+    ],
+    [
+     61.74,
+     -10.69
+    ],
+    [
+     50.95,
+     -7.81
+    ],
+    [
+     48.73,
+     -16.13
+    ]
+   ],
+   "height": 6.23,
+   "roof": "gable",
+   "wall": "#FAF9F6",
+   "roof_color": "#B9572F",
+   "style": "putz"
+  },
+  {
+   "id": "haus_62",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     66.83,
+     4.93
+    ],
+    [
+     69.58,
+     13.19
+    ],
+    [
+     59.17,
+     16.67
+    ],
+    [
+     56.42,
+     8.41
+    ]
+   ],
+   "height": 6.57,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#D47546",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_63",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     50.34,
+     68.16
+    ],
+    [
+     46.66,
+     58.36
+    ],
+    [
+     57.66,
+     54.24
+    ],
+    [
+     61.34,
+     64.04
+    ]
+   ],
+   "height": 7.78,
+   "roof": "gable",
+   "wall": "#F1EEE6",
+   "roof_color": "#B9572F",
+   "style": "putz",
+   "solar": true
+  },
+  {
+   "id": "haus_64",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     55.92,
+     89.75
+    ],
+    [
+     51.96,
+     80.52
+    ],
+    [
+     62.88,
+     75.85
+    ],
+    [
+     66.84,
+     85.08
+    ]
+   ],
+   "height": 5.56,
+   "roof": "gable",
+   "wall": "#EEE6D6",
+   "roof_color": "#C96A40",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_65",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     84.36,
+     43.74
+    ],
+    [
+     87.82,
+     53.43
+    ],
+    [
+     77.64,
+     57.06
+    ],
+    [
+     74.18,
+     47.37
+    ]
+   ],
+   "height": 7.31,
+   "roof": "gable",
+   "wall": "#E9E2D2",
+   "roof_color": "#A94F2E",
+   "style": "putz",
+   "solar": true
+  },
+  {
+   "id": "haus_66",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     84.34,
+     58.45
+    ],
+    [
+     88.55,
+     68.28
+    ],
+    [
+     80.17,
+     71.87
+    ],
+    [
+     75.96,
+     62.04
+    ]
+   ],
+   "height": 5.84,
+   "roof": "gable",
+   "wall": "#FAF9F6",
+   "roof_color": "#C8643C",
+   "style": "putz"
+  },
+  {
+   "id": "haus_67",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     74.51,
+     -56.08
+    ],
+    [
+     69.23,
+     -49.74
+    ],
+    [
+     62.29,
+     -55.52
+    ],
+    [
+     67.57,
+     -61.86
+    ]
+   ],
+   "height": 7.01,
+   "roof": "gable",
+   "wall": "#F1EEE6",
+   "roof_color": "#D47546",
+   "style": "putz",
+   "solar": true
+  },
+  {
+   "id": "haus_68",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     62.01,
+     -58.98
+    ],
+    [
+     52.72,
+     -53.41
+    ],
+    [
+     47.79,
+     -61.62
+    ],
+    [
+     57.08,
+     -67.19
+    ]
+   ],
+   "height": 5.83,
+   "roof": "gable",
+   "wall": "#F4E7C8",
+   "roof_color": "#C8643C",
+   "style": "putz"
+  },
+  {
+   "id": "haus_69",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     50.26,
+     -49.71
+    ],
+    [
+     53.22,
+     -41.63
+    ],
+    [
+     42.87,
+     -37.83
+    ],
+    [
+     39.91,
+     -45.92
+    ]
+   ],
+   "height": 6.11,
+   "roof": "gable",
+   "wall": "#FAF9F6",
+   "roof_color": "#D47546",
+   "style": "putz",
+   "solar": true
+  },
+  {
+   "id": "haus_70",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     87.19,
+     -24.21
+    ],
+    [
+     89.88,
+     -15.23
+    ],
+    [
+     78.41,
+     -11.79
+    ],
+    [
+     75.72,
+     -20.77
+    ]
+   ],
+   "height": 6.56,
+   "roof": "gable",
+   "wall": "#F1EEE6",
+   "roof_color": "#C96A40",
+   "style": "putz"
+  },
+  {
+   "id": "haus_71",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     94.44,
+     11.88
+    ],
+    [
+     96.61,
+     21.66
+    ],
+    [
+     85.56,
+     24.12
+    ],
+    [
+     83.39,
+     14.34
+    ]
+   ],
+   "height": 6.49,
+   "roof": "gable",
+   "wall": "#F1EBDF",
+   "roof_color": "#D47546",
+   "style": "fachwerk"
+  },
+  {
+   "id": "haus_72",
+   "name": "Wohnhaus",
+   "footprint": [
+    [
+     77.05,
+     -39.85
+    ],
+    [
+     79.43,
+     -30.91
+    ],
+    [
+     70.55,
+     -28.55
+    ],
+    [
+     68.17,
+     -37.49
+    ]
+   ],
+   "height": 6.08,
+   "roof": "gable",
+   "wall": "#F3EFE6",
+   "roof_color": "#A94F2E",
+   "style": "fachwerk"
+  }
+ ],
+ "stations": [
+  {
+   "id": "platz",
+   "title": "Am Dorfplatz",
+   "pos": [
+    -31.5,
+    -36
+   ],
+   "text": [
+    "Willkommen in der Mitte von Adorf! Früher war Adorf ein Marktort – hier haben die Leute Waren gekauft und verkauft, Neuigkeiten ausgetauscht und gefeiert.",
+    "Und heute? Steht am Dorfplatz ein öffentlicher Bücherschrank. Jeder darf ein Buch herausnehmen oder eins hineinstellen."
+   ],
+   "sample_text": false
+  },
+  {
+   "id": "kirche",
+   "title": "St.-Johannis-Kirche",
+   "pos": [
+    -45,
+    14.4
+   ],
+   "text": [
+    "Schau mal nach oben! Unsere Kirche ist eine romanische Basilika und Johannes dem Täufer geweiht. Gebaut wurde sie wohl zwischen 1180 und 1190.",
+    "Früher war sie eine Wehrkirche mit ummauertem Kirchhof – auf der Mauer kann man prima balancieren. Adorf gehört zu den ältesten Pfarreien im nördlichen Waldeck."
+   ],
+   "sample_text": false
+  },
+  {
+   "id": "pranger",
+   "title": "Der Pranger",
+   "pos": [
+    -9,
+    -1.8
+   ],
+   "text": [
+    "Siehst du den steinernen Pfahl? Das ist der Pranger. Früher wurde hier zur Strafe öffentlich zur Schau gestellt, wer etwas angestellt hatte – und das ganze Dorf konnte zusehen.",
+    "Welche Geschichten sich um den Adorfer Pranger drehen, schreibe ich bald auf."
+   ],
+   "sample_text": true
+  },
+  {
+   "id": "burg",
+   "title": "Die Wasserburg",
+   "pos": [
+    10.8,
+    -9.9
+   ],
+   "text": [
+    "Adorf war früher ein Marktort mit einer kleinen Burg mitten im Dorf. Im 13. Jahrhundert stand hier wohl eine Kemenate, ein festes Steinhaus mit Wassergraben – also Vorsicht, nicht nass werden!",
+    "1468 kam die Burg an die Grafen von Waldeck. Anfang des 19. Jahrhunderts wurde sie abgerissen und das heutige Herrenhaus gebaut. Von der Ringmauer sind nur noch ein paar Reste übrig."
+   ],
+   "sample_text": true
+  },
+  {
+   "id": "amt",
+   "title": "Das Gemeindeamt",
+   "pos": [
+    29.7,
+    16.2
+   ],
+   "text": [
+    "Seit dem 31. Dezember 1971 ist Adorf der Sitz der Gemeinde Diemelsee. Hier in der Gemeindeverwaltung wird die ganze Gemeinde verwaltet."
+   ],
+   "sample_text": false
+  }
+ ],
+ "platforms": [
+  {
+   "name": "Kirchhofmauer Nord",
+   "center": [
+    -45,
+    -6.4
+   ],
+   "size": [
+    36,
+    0.9
+   ],
+   "height": 1.5
+  }
+ ]
+}
