@@ -58,12 +58,13 @@ static func tri(st: SurfaceTool, a: Vector3, b: Vector3, c: Vector3, outward: Ve
 	st.set_normal(nn); st.set_uv(uc); st.add_vertex(c)
 
 ## Variante des Tusche-Materials mit Zusatz-Parametern (Ziegelreihen, Gras)
-func mat_ex(color: Color, params: Dictionary) -> ShaderMaterial:
-	var key := "ex|%s|%s" % [color.to_html(), str(params)]
+func mat_ex(color: Color, params: Dictionary, outline := true) -> ShaderMaterial:
+	var key := "ex|%s|%s|%s" % [color.to_html(), str(params), outline]
 	if _mats.has(key):
 		return _mats[key]
-	var m: ShaderMaterial = mat(color, true).duplicate()
-	m.next_pass = mat(color, true).next_pass
+	var m: ShaderMaterial = mat(color, false).duplicate()
+	if outline:
+		m.next_pass = mat(color, true).next_pass
 	for k in params:
 		m.set_shader_parameter(k, params[k])
 	_mats[key] = m
@@ -89,7 +90,7 @@ func window_texture() -> Texture2D:
 	return _window_tex
 
 # ---------------------------------------------------------------- Straßen und Wasser
-func _strip(points: Array, width: float, lift: float, color: Color, parent: Node3D, dash := false) -> void:
+func _strip(points: Array, width: float, lift: float, color: Color, parent: Node3D, dash := false, material: Material = null) -> void:
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var pts: Array[Vector2] = []
@@ -123,7 +124,7 @@ func _strip(points: Array, width: float, lift: float, color: Color, parent: Node
 				tri(st, Vector3(p.x, y, p.y), Vector3(p.x + cos(a1) * width * 0.5, y, p.y + sin(a1) * width * 0.5), Vector3(p.x + cos(a0) * width * 0.5, y, p.y + sin(a0) * width * 0.5), Vector3.UP)
 	var mi := MeshInstance3D.new()
 	mi.mesh = st.commit()
-	mi.material_override = mat(color, false)
+	mi.material_override = material if material else mat(color, false)
 	parent.add_child(mi)
 
 func build_roads(roads: Array, water: Array) -> void:
@@ -135,11 +136,9 @@ func build_roads(roads: Array, water: Array) -> void:
 		_strip(w["points"], 2.8, 0.3, Color("#7E97A8"), node)
 	for r in roads:
 		var wd: float = r["width"]
-		_strip(r["points"], wd + 2.4, 0.12, INK, node)
-		_strip(r["points"], wd + 2.0, 0.3, Color("#D3CFC6"), node)   # Gehweg
-		_strip(r["points"], wd, 0.5, Color("#8F8D87"), node)         # Asphalt
-		if r.get("main", false):
-			_strip(r["points"], 0.18, 0.62, Color("#F2F0EA"), node, true)
+		_strip(r["points"], wd + 1.6, 0.12, INK, node)
+		_strip(r["points"], wd + 1.2, 0.3, Color("#E7E5DF"), node, false, mat_ex(Color("#C9C6BD"), {"cobble": true, "watercolor": 0.12}, false))  # Randsteine
+		_strip(r["points"], wd, 0.5, Color("#9A9992"), node, false, mat_ex(Color("#A9A79F"), {"cobble": true}, false))  # Kopfsteinpflaster
 
 # ---------------------------------------------------------------- Gebäude
 ## Gezeichnete Fachwerk-Textur (4 x 4 m je Kachel), bis echte Fassaden aus der Bildwerkstatt vorliegen.
@@ -148,7 +147,7 @@ func fachwerk_texture() -> Texture2D:
 		return _fachwerk
 	var img := Image.create(256, 256, false, Image.FORMAT_RGB8)
 	img.fill(Color("#F3EFE6"))
-	var beam := Color("#4E3424")
+	var beam := Color("#1E1E1C")
 	var line := func(a: Vector2, b: Vector2, w: int) -> void:
 		var steps := int(a.distance_to(b))
 		for s in range(steps + 1):
@@ -164,6 +163,8 @@ func fachwerk_texture() -> Texture2D:
 		line.call(Vector2(0, y), Vector2(255, y), 5)
 	line.call(Vector2(0, 128), Vector2(128, 0), 4)
 	line.call(Vector2(255, 128), Vector2(128, 255), 4)
+	line.call(Vector2(64, 0), Vector2(64, 128), 3)
+	line.call(Vector2(192, 128), Vector2(192, 255), 3)
 	_fachwerk = ImageTexture.create_from_image(img)
 	return _fachwerk
 
@@ -216,7 +217,10 @@ func _building(b: Dictionary, parent: Node3D) -> void:
 		tri(st, v[0], v[2], v[3], out, [Vector2(0, v1), Vector2(u1, 0), Vector2(0, 0)])
 	var walls := MeshInstance3D.new()
 	walls.mesh = st.commit()
-	walls.material_override = mat(wall_c if (tex == null or world_uv) else Color.WHITE, true, tex)
+	if b.get("style", "") == "masonry":
+		walls.material_override = mat_ex(wall_c, {"masonry": true})
+	else:
+		walls.material_override = mat(wall_c if (tex == null or world_uv) else Color.WHITE, true, tex)
 	body.add_child(walls)
 	# Fenster (nur solange keine gezeichnete Fassade vorliegt)
 	if tex == null or world_uv:
@@ -325,8 +329,8 @@ func _basilica(fp: Array[Vector2], base: float, h: float, parent: Node3D) -> voi
 	for p in fp:
 		minx = minf(minx, p.x); maxx = maxf(maxx, p.x); minz = minf(minz, p.y); maxz = maxf(maxz, p.y)
 	var len := maxx - minx
-	var stone := mat(Color("#D9D2C2"), true)
-	var slate := mat(Color("#5C5B57"), true)
+	var stone := mat_ex(Color("#6B6A65"), {"masonry": true})
+	var slate := mat_ex(Color("#3A3B40"), {"stripes": 0.5})
 	for side in [-1.0, 1.0]:
 		var zc: float = (minz + maxz) * 0.5 + side * ((maxz - minz) * 0.5 + 1.6)
 		var aisle := MeshInstance3D.new()
@@ -388,7 +392,7 @@ func _tower(fp: Array[Vector2], base: float, t: Dictionary, parent: Node3D) -> v
 	bm.size = Vector3(w, hh, w)
 	box.mesh = bm
 	box.position = Vector3(pos.x, base + hh * 0.5, pos.y)
-	box.material_override = mat(Color("#E7E5DF"), true)
+	box.material_override = mat_ex(Color("#6B6A65"), {"masonry": true})
 	parent.add_child(box)
 	var spire := MeshInstance3D.new()
 	var cm := CylinderMesh.new()
@@ -399,7 +403,7 @@ func _tower(fp: Array[Vector2], base: float, t: Dictionary, parent: Node3D) -> v
 	spire.mesh = cm
 	spire.position = Vector3(pos.x, base + hh + cm.height * 0.5, pos.y)
 	spire.rotation.y = PI / 4.0
-	spire.material_override = mat(Color("#5C5B57"), true)
+	spire.material_override = mat_ex(Color("#33343A"), {"stripes": 0.5})
 	parent.add_child(spire)
 	var cs := CollisionShape3D.new()
 	var shape := BoxShape3D.new()
@@ -526,6 +530,204 @@ func build_trees(roads: Array, water: Array, buildings: Array, count: int, area 
 				blob.position = Vector3(k * 0.7 * s - 0.7 * s, r * 0.6, rng.randf_range(-0.3, 0.3))
 				blob.material_override = mat(Color(green), true)
 				tree.add_child(blob)
+
+# ---------------------------------------------------------------- Requisiten im Tusche-Stil
+func _solid(mesh: Mesh, color: Color, pos: Vector3, parent: Node3D, shape: Shape3D = null, rot := 0.0, m: Material = null) -> MeshInstance3D:
+	var mi := MeshInstance3D.new()
+	mi.mesh = mesh
+	mi.position = pos
+	mi.rotation.y = rot
+	mi.material_override = m if m else mat(color, true)
+	parent.add_child(mi)
+	if shape:
+		var body := StaticBody3D.new()
+		body.position = pos
+		body.rotation.y = rot
+		var cs := CollisionShape3D.new()
+		cs.shape = shape
+		body.add_child(cs)
+		parent.add_child(body)
+	return mi
+
+func barrel(p: Vector3, parent: Node3D) -> void:
+	var cm := CylinderMesh.new()
+	cm.top_radius = 0.38
+	cm.bottom_radius = 0.38
+	cm.height = 0.95
+	cm.radial_segments = 12
+	var sh := CylinderShape3D.new()
+	sh.radius = 0.4
+	sh.height = 0.95
+	_solid(cm, Color("#8A6446"), p + Vector3(0, 0.475, 0), parent, sh)
+	for y in [0.2, 0.75]:
+		var band := CylinderMesh.new()
+		band.top_radius = 0.4
+		band.bottom_radius = 0.4
+		band.height = 0.06
+		band.radial_segments = 12
+		_solid(band, Color("#1E1E1C"), p + Vector3(0, y, 0), parent)
+
+func crate(p: Vector3, parent: Node3D, size := 0.8, rot := 0.0) -> void:
+	var bm := BoxMesh.new()
+	bm.size = Vector3(size, size, size)
+	var sh := BoxShape3D.new()
+	sh.size = bm.size
+	_solid(bm, Color("#A07A52"), p + Vector3(0, size * 0.5, 0), parent, sh, rot, mat_ex(Color("#A07A52"), {"stripes": size / 3.0}))
+
+func cart(p: Vector3, rot: float, parent: Node3D) -> void:
+	var n := Node3D.new()
+	n.position = p
+	n.rotation.y = rot
+	parent.add_child(n)
+	var bed := BoxMesh.new()
+	bed.size = Vector3(1.2, 0.5, 2.0)
+	var sh := BoxShape3D.new()
+	sh.size = Vector3(1.2, 1.1, 2.0)
+	_solid(bed, Color("#8A6446"), Vector3(0, 0.85, 0), n, sh, 0.0, mat_ex(Color("#8A6446"), {"stripes": 0.18}))
+	for side in [-0.68, 0.68]:
+		var wheel := CylinderMesh.new()
+		wheel.top_radius = 0.55
+		wheel.bottom_radius = 0.55
+		wheel.height = 0.1
+		wheel.radial_segments = 14
+		var w := _solid(wheel, Color("#6E4A33"), Vector3(side, 0.55, -0.2), n)
+		w.rotation.z = PI / 2.0
+	var shaft := BoxMesh.new()
+	shaft.size = Vector3(0.08, 0.08, 1.6)
+	var s1 := _solid(shaft, Color("#6E4A33"), Vector3(-0.35, 0.55, 1.6), n)
+	s1.rotation.x = 0.35
+	var s2 := _solid(shaft, Color("#6E4A33"), Vector3(0.35, 0.55, 1.6), n)
+	s2.rotation.x = 0.35
+
+func fountain(c: Vector2, parent: Node3D) -> void:
+	var y := terrain.surface(c.x, c.y)
+	var basin := CylinderMesh.new()
+	basin.top_radius = 2.0
+	basin.bottom_radius = 2.1
+	basin.height = 0.8
+	basin.radial_segments = 8
+	var sh := CylinderShape3D.new()
+	sh.radius = 2.1
+	sh.height = 0.8
+	_solid(basin, Color("#9A9992"), Vector3(c.x, y + 0.4, c.y), parent, sh, 0.0, mat_ex(Color("#9A9992"), {"masonry": true}))
+	var water := CylinderMesh.new()
+	water.top_radius = 1.75
+	water.bottom_radius = 1.75
+	water.height = 0.05
+	water.radial_segments = 8
+	_solid(water, Color("#7E97A8"), Vector3(c.x, y + 0.79, c.y), parent, null, 0.0, mat(Color("#7E97A8"), false))
+	var col := CylinderMesh.new()
+	col.top_radius = 0.22
+	col.bottom_radius = 0.3
+	col.height = 1.8
+	col.radial_segments = 8
+	var csh := CylinderShape3D.new()
+	csh.radius = 0.3
+	csh.height = 1.8
+	_solid(col, Color("#9A9992"), Vector3(c.x, y + 1.3, c.y), parent, csh)
+	var bowl := CylinderMesh.new()
+	bowl.top_radius = 0.6
+	bowl.bottom_radius = 0.25
+	bowl.height = 0.3
+	bowl.radial_segments = 8
+	_solid(bowl, Color("#9A9992"), Vector3(c.x, y + 2.25, c.y), parent)
+
+## Domänenhof: gepflasterter Hof mit ovaler Raseninsel und Freitreppe vor dem Haupthaus
+func domaene(house: Dictionary, parent: Node3D) -> void:
+	var fp: Array = house["footprint"]
+	var c := Vector2.ZERO
+	var maxz := -1e9
+	for p in fp:
+		c += Vector2(p[0], p[1])
+		maxz = maxf(maxz, p[1])
+	c /= fp.size()
+	var court := Vector2(c.x, maxz + 11.0)
+	var y := -1e9
+	for k in range(24):
+		var ang := TAU * k / 24.0
+		for rr in [0.0, 6.0, 12.0]:
+			y = maxf(y, terrain.surface(court.x + cos(ang) * rr * 1.3, court.y + sin(ang) * rr * 0.85))
+	y += 0.15
+	var pave := CylinderMesh.new()
+	pave.top_radius = 13.0
+	pave.bottom_radius = 13.6
+	pave.height = 3.0
+	pave.radial_segments = 32
+	var pm := _solid(pave, Color("#9A9992"), Vector3(court.x, y - 1.45, court.y), parent, null, 0.0, mat_ex(Color("#A9A79F"), {"cobble": true}, false))
+	pm.scale = Vector3(1.3, 1, 0.85)
+	pm.create_trimesh_collision()
+	var lawn := CylinderMesh.new()
+	lawn.top_radius = 6.0
+	lawn.bottom_radius = 6.0
+	lawn.height = 0.35
+	lawn.radial_segments = 32
+	var lm := _solid(lawn, Color("#2E6B3E"), Vector3(court.x, y + 0.08, court.y + 1.5), parent, null, 0.0, mat_ex(Color("#3E7A46"), {"grass": true}))
+	lm.scale = Vector3(1.35, 1, 0.8)
+	lm.create_trimesh_collision()
+	var edge := CylinderMesh.new()
+	edge.top_radius = 6.25
+	edge.bottom_radius = 6.25
+	edge.height = 0.25
+	edge.radial_segments = 32
+	var em := _solid(edge, Color("#E7E5DF"), Vector3(court.x, y + 0.02, court.y + 1.5), parent, null, 0.0, mat(Color("#E7E5DF"), true))
+	em.scale = Vector3(1.35, 1, 0.8)
+	# Freitreppe
+	var base := terrain.surface(c.x, maxz)
+	for i in range(4):
+		var step := BoxMesh.new()
+		step.size = Vector3(3.2 - i * 0.2, 0.35, 0.6)
+		var sh := BoxShape3D.new()
+		sh.size = step.size
+		_solid(step, Color("#9A9992"), Vector3(c.x, base - 0.4 + 0.35 * i + 0.175, maxz + 2.0 - i * 0.55), parent, sh, 0.0, mat_ex(Color("#9A9992"), {"masonry": true}))
+	var roof := PrismMesh.new()
+	roof.size = Vector3(3.4, 0.9, 1.6)
+	_solid(roof, Color("#7A2B30"), Vector3(c.x, base + 3.4, maxz + 0.6), parent, null, 0.0, mat_ex(Color("#7A2B30"), {"stripes": 0.3}))
+	# Fässer und Kisten im Hof
+	for k in range(3):
+		barrel(Vector3(c.x + 4.0 + k * 0.85, base - 0.3, maxz + 1.3), parent)
+	crate(Vector3(c.x - 4.2, base - 0.3, maxz + 1.4), parent)
+	crate(Vector3(c.x - 5.1, base - 0.3, maxz + 1.6), parent, 0.8, 0.3)
+	crate(Vector3(c.x - 4.6, base + 0.5, maxz + 1.5), parent, 0.7, 0.6)
+
+## Requisiten an den Hauswänden entlang der Straßen verteilen
+func scatter_props(roads: Array, keep_free: Array, count: int) -> void:
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 77
+	var node := Node3D.new()
+	node.name = "Requisiten"
+	root.add_child(node)
+	var placed := 0
+	var tries := 0
+	while placed < count and tries < count * 20:
+		tries += 1
+		var r: Dictionary = roads[rng.randi() % roads.size()]
+		var pts: Array = r["points"]
+		var i := rng.randi() % (pts.size() - 1)
+		var a := Vector2(pts[i][0], pts[i][1])
+		var b := Vector2(pts[i + 1][0], pts[i + 1][1])
+		var d := (b - a).normalized()
+		var side := 1.0 if rng.randf() < 0.5 else -1.0
+		var p: Vector2 = a.lerp(b, rng.randf()) + Vector2(-d.y, d.x) * side * (float(r["width"]) * 0.5 + 1.6)
+		var ok := true
+		for f in keep_free:
+			if p.distance_to(Vector2(f[0], f[1])) < 7.0:
+				ok = false
+		if not ok:
+			continue
+		placed += 1
+		var y := terrain.surface(p.x, p.y)
+		var kind := rng.randi() % 4
+		if kind == 0:
+			cart(Vector3(p.x, y, p.y), atan2(d.x, d.y) + rng.randf_range(-0.4, 0.4), node)
+		elif kind == 1:
+			barrel(Vector3(p.x, y, p.y), node)
+			barrel(Vector3(p.x + d.x * 0.85, y, p.y + d.y * 0.85), node)
+		else:
+			crate(Vector3(p.x, y, p.y), node, 0.8, rng.randf())
+			if rng.randf() < 0.6:
+				crate(Vector3(p.x + d.x * 0.9, y, p.y + d.y * 0.9), node, 0.8, rng.randf())
+			if rng.randf() < 0.4:
+				crate(Vector3(p.x, y + 0.8, p.y), node, 0.7, rng.randf())
 
 # ---------------------------------------------------------------- Stationen und Federn
 func build_stations(list: Array) -> void:

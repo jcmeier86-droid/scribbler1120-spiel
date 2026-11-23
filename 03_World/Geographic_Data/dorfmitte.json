@@ -1,7 +1,7 @@
 {
  "area": "dorfmitte",
  "name": "Dorfmitte",
- "source": "Lage nach OpenStreetMap (© OpenStreetMap-Mitwirkende), Gebäude vereinfacht; Beispieldaten aus dem Browser-Prototyp; Dachfarben und Fachwerkanteil nach Luftbildern der Ortsmitte",
+ "source": "Lage nach OpenStreetMap (© OpenStreetMap-Mitwirkende), Gebäude vereinfacht; Beispieldaten aus dem Browser-Prototyp; Dachfarben und Fachwerkanteil nach Luftbildern der Ortsmitte; Gestaltung nach Art-Direction „Living Sketchbook“",
  "units": "Meter, x nach Osten, z nach Süden",
  "start": [
   -30.24,
@@ -457,14 +457,15 @@
    ],
    "height": 11,
    "roof": "gable",
-   "wall": "#E3DDCF",
-   "roof_color": "#5C5B57",
+   "wall": "#6B6A65",
+   "roof_color": "#3A3B40",
    "tower": {
     "side": "west",
     "w": 8,
     "h": 24
    },
-   "landmark": true
+   "landmark": true,
+   "style": "masonry"
   },
   {
    "id": "gemeindeamt",
@@ -489,15 +490,15 @@
    ],
    "height": 9,
    "roof": "gable",
-   "wall": "#F3EFE6",
-   "roof_color": "#C8643C",
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
    "tower": null,
    "landmark": true,
    "style": "fachwerk"
   },
   {
    "id": "herrenhaus",
-   "name": "Hofdomäne – Haupthaus (Lage nach Luftbild geschätzt)",
+   "name": "Hofdomäne – Haupthaus",
    "footprint": [
     [
      0.8,
@@ -519,9 +520,10 @@
    "height": 8,
    "roof": "hip",
    "wall": "#FAF9F6",
-   "roof_color": "#C8643C",
+   "roof_color": "#7A2B30",
    "tower": null,
-   "landmark": true
+   "landmark": true,
+   "style": "fachwerk"
   },
   {
    "id": "haus_1",
@@ -546,9 +548,9 @@
    ],
    "height": 6.22,
    "roof": "gable",
-   "wall": "#EEE6D6",
-   "roof_color": "#B9572F",
-   "style": "fachwerk"
+   "wall": "#F3EFE6",
+   "roof_color": "#7A2B30",
+   "style": "putz"
   },
   {
    "id": "haus_2",
@@ -574,9 +576,8 @@
    "height": 6.83,
    "roof": "gable",
    "wall": "#FAF9F6",
-   "roof_color": "#A94F2E",
-   "style": "putz",
-   "solar": true
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_3",
@@ -601,9 +602,9 @@
    ],
    "height": 7.39,
    "roof": "gable",
-   "wall": "#EFE7D6",
-   "roof_color": "#A94F2E",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
+   "style": "fachwerk"
   },
   {
    "id": "haus_4",
@@ -628,8 +629,8 @@
    ],
    "height": 7.09,
    "roof": "gable",
-   "wall": "#EEE6D6",
-   "roof_color": "#C8643C",
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
   {
@@ -655,9 +656,9 @@
    ],
    "height": 6.44,
    "roof": "gable",
-   "wall": "#F3EFE6",
-   "roof_color": "#D47546",
-   "style": "fachwerk"
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
+   "style": "putz"
   },
   {
    "id": "haus_6",
@@ -682,8 +683,8 @@
    ],
    "height": 5.63,
    "roof": "gable",
-   "wall": "#F3EFE6",
-   "roof_color": "#C8643C",
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
   {
@@ -709,10 +710,9 @@
    ],
    "height": 7.81,
    "roof": "gable",
-   "wall": "#F1EEE6",
-   "roof_color": "#D47546",
-   "style": "putz",
-   "solar": true
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_8",
@@ -737,10 +737,9 @@
    ],
    "height": 6.78,
    "roof": "gable",
-   "wall": "#EFE7D6",
-   "roof_color": "#D47546",
-   "style": "putz",
-   "solar": true
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_9",
@@ -765,9 +764,9 @@
    ],
    "height": 7.11,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#C96A40",
-   "style": "fachwerk"
+   "wall": "#EFEBE2",
+   "roof_color": "#7A2B30",
+   "style": "putz"
   },
   {
    "id": "haus_10",
@@ -792,8 +791,8 @@
    ],
    "height": 7.77,
    "roof": "gable",
-   "wall": "#F3EFE6",
-   "roof_color": "#C96A40",
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
   {
@@ -819,8 +818,8 @@
    ],
    "height": 7.59,
    "roof": "gable",
-   "wall": "#EEE6D6",
-   "roof_color": "#A94F2E",
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
   {
@@ -846,8 +845,8 @@
    ],
    "height": 6.24,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#D47546",
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
   {
@@ -873,9 +872,9 @@
    ],
    "height": 7.84,
    "roof": "gable",
-   "wall": "#EFE7D6",
-   "roof_color": "#C96A40",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_14",
@@ -900,8 +899,8 @@
    ],
    "height": 7.69,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#C96A40",
+   "wall": "#FAF9F6",
+   "roof_color": "#83323A",
    "style": "fachwerk"
   },
   {
@@ -927,8 +926,8 @@
    ],
    "height": 6.9,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#C96A40",
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
   {
@@ -954,9 +953,9 @@
    ],
    "height": 5.98,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#B9572F",
-   "style": "fachwerk"
+   "wall": "#EFEBE2",
+   "roof_color": "#8A3A36",
+   "style": "putz"
   },
   {
    "id": "haus_17",
@@ -981,8 +980,8 @@
    ],
    "height": 6.41,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#C8643C",
+   "wall": "#FAF9F6",
+   "roof_color": "#83323A",
    "style": "fachwerk"
   },
   {
@@ -1008,9 +1007,9 @@
    ],
    "height": 7.81,
    "roof": "gable",
-   "wall": "#E9E2D2",
-   "roof_color": "#D47546",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_19",
@@ -1035,10 +1034,9 @@
    ],
    "height": 6.51,
    "roof": "gable",
-   "wall": "#F1EEE6",
-   "roof_color": "#B9572F",
-   "style": "putz",
-   "solar": true
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_20",
@@ -1063,10 +1061,9 @@
    ],
    "height": 6.56,
    "roof": "gable",
-   "wall": "#E9E2D2",
-   "roof_color": "#B9572F",
-   "style": "putz",
-   "solar": true
+   "wall": "#FAF9F6",
+   "roof_color": "#6E2A2C",
+   "style": "fachwerk"
   },
   {
    "id": "haus_21",
@@ -1091,9 +1088,9 @@
    ],
    "height": 7.04,
    "roof": "gable",
-   "wall": "#EEE6D6",
-   "roof_color": "#D47546",
-   "style": "fachwerk"
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
+   "style": "putz"
   },
   {
    "id": "haus_22",
@@ -1118,9 +1115,9 @@
    ],
    "height": 7.09,
    "roof": "gable",
-   "wall": "#F1EEE6",
-   "roof_color": "#D47546",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#6E2A2C",
+   "style": "fachwerk"
   },
   {
    "id": "haus_23",
@@ -1145,10 +1142,9 @@
    ],
    "height": 6.76,
    "roof": "gable",
-   "wall": "#F1EEE6",
-   "roof_color": "#C8643C",
-   "style": "putz",
-   "solar": true
+   "wall": "#FAF9F6",
+   "roof_color": "#83323A",
+   "style": "fachwerk"
   },
   {
    "id": "haus_24",
@@ -1173,10 +1169,9 @@
    ],
    "height": 6.49,
    "roof": "gable",
-   "wall": "#F1EEE6",
-   "roof_color": "#C96A40",
-   "style": "putz",
-   "solar": true
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_25",
@@ -1201,8 +1196,8 @@
    ],
    "height": 6.97,
    "roof": "gable",
-   "wall": "#F3EFE6",
-   "roof_color": "#B9572F",
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
   {
@@ -1228,8 +1223,8 @@
    ],
    "height": 6.48,
    "roof": "gable",
-   "wall": "#F3EFE6",
-   "roof_color": "#C8643C",
+   "wall": "#FAF9F6",
+   "roof_color": "#6E2A2C",
    "style": "fachwerk"
   },
   {
@@ -1255,10 +1250,9 @@
    ],
    "height": 5.78,
    "roof": "gable",
-   "wall": "#EFE7D6",
-   "roof_color": "#D47546",
-   "style": "putz",
-   "solar": true
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "putz"
   },
   {
    "id": "haus_28",
@@ -1283,8 +1277,8 @@
    ],
    "height": 6.52,
    "roof": "gable",
-   "wall": "#F3EFE6",
-   "roof_color": "#D47546",
+   "wall": "#FAF9F6",
+   "roof_color": "#83323A",
    "style": "fachwerk"
   },
   {
@@ -1310,9 +1304,9 @@
    ],
    "height": 7.99,
    "roof": "gable",
-   "wall": "#F4E7C8",
-   "roof_color": "#A94F2E",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_30",
@@ -1337,8 +1331,8 @@
    ],
    "height": 5.86,
    "roof": "gable",
-   "wall": "#F3EFE6",
-   "roof_color": "#C8643C",
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
   {
@@ -1364,8 +1358,8 @@
    ],
    "height": 5.84,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#A94F2E",
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
   {
@@ -1391,9 +1385,9 @@
    ],
    "height": 7.73,
    "roof": "gable",
-   "wall": "#F1EEE6",
-   "roof_color": "#A94F2E",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#6E2A2C",
+   "style": "fachwerk"
   },
   {
    "id": "haus_33",
@@ -1418,8 +1412,8 @@
    ],
    "height": 7.4,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#C8643C",
+   "wall": "#FAF9F6",
+   "roof_color": "#6E2A2C",
    "style": "fachwerk"
   },
   {
@@ -1445,8 +1439,8 @@
    ],
    "height": 6.12,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#B9572F",
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
   {
@@ -1472,9 +1466,9 @@
    ],
    "height": 7.04,
    "roof": "gable",
-   "wall": "#E9E2D2",
-   "roof_color": "#D47546",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_36",
@@ -1500,9 +1494,8 @@
    "height": 6.72,
    "roof": "gable",
    "wall": "#FAF9F6",
-   "roof_color": "#A94F2E",
-   "style": "putz",
-   "solar": true
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_37",
@@ -1527,8 +1520,8 @@
    ],
    "height": 7.71,
    "roof": "gable",
-   "wall": "#F4E7C8",
-   "roof_color": "#C8643C",
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
    "style": "putz"
   },
   {
@@ -1554,9 +1547,9 @@
    ],
    "height": 7.74,
    "roof": "gable",
-   "wall": "#F4E7C8",
-   "roof_color": "#B9572F",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
+   "style": "fachwerk"
   },
   {
    "id": "haus_39",
@@ -1581,8 +1574,8 @@
    ],
    "height": 5.51,
    "roof": "gable",
-   "wall": "#F3EFE6",
-   "roof_color": "#B9572F",
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
   {
@@ -1608,9 +1601,9 @@
    ],
    "height": 7.75,
    "roof": "gable",
-   "wall": "#EFE7D6",
-   "roof_color": "#C8643C",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#83323A",
+   "style": "fachwerk"
   },
   {
    "id": "haus_41",
@@ -1635,9 +1628,9 @@
    ],
    "height": 6.91,
    "roof": "gable",
-   "wall": "#F1EEE6",
-   "roof_color": "#A94F2E",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_42",
@@ -1662,9 +1655,9 @@
    ],
    "height": 6.06,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#B9572F",
-   "style": "fachwerk"
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "putz"
   },
   {
    "id": "haus_43",
@@ -1689,9 +1682,9 @@
    ],
    "height": 5.63,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#C8643C",
-   "style": "fachwerk"
+   "wall": "#EFEBE2",
+   "roof_color": "#6E2A2C",
+   "style": "putz"
   },
   {
    "id": "haus_44",
@@ -1716,8 +1709,8 @@
    ],
    "height": 7.29,
    "roof": "gable",
-   "wall": "#E9E2D2",
-   "roof_color": "#B9572F",
+   "wall": "#FAF9F6",
+   "roof_color": "#6E2A2C",
    "style": "putz"
   },
   {
@@ -1743,8 +1736,8 @@
    ],
    "height": 5.78,
    "roof": "gable",
-   "wall": "#F3EFE6",
-   "roof_color": "#A94F2E",
+   "wall": "#FAF9F6",
+   "roof_color": "#83323A",
    "style": "fachwerk"
   },
   {
@@ -1770,8 +1763,8 @@
    ],
    "height": 5.59,
    "roof": "gable",
-   "wall": "#EEE6D6",
-   "roof_color": "#D47546",
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
   {
@@ -1797,9 +1790,9 @@
    ],
    "height": 7.98,
    "roof": "gable",
-   "wall": "#E9E2D2",
-   "roof_color": "#B9572F",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_48",
@@ -1824,8 +1817,8 @@
    ],
    "height": 6.55,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#B9572F",
+   "wall": "#FAF9F6",
+   "roof_color": "#83323A",
    "style": "fachwerk"
   },
   {
@@ -1851,8 +1844,8 @@
    ],
    "height": 6.38,
    "roof": "gable",
-   "wall": "#EEE6D6",
-   "roof_color": "#C96A40",
+   "wall": "#FAF9F6",
+   "roof_color": "#6E2A2C",
    "style": "fachwerk"
   },
   {
@@ -1879,8 +1872,8 @@
    "height": 6.34,
    "roof": "gable",
    "wall": "#FAF9F6",
-   "roof_color": "#A94F2E",
-   "style": "putz"
+   "roof_color": "#8A3A36",
+   "style": "fachwerk"
   },
   {
    "id": "haus_51",
@@ -1905,8 +1898,8 @@
    ],
    "height": 6,
    "roof": "gable",
-   "wall": "#EEE6D6",
-   "roof_color": "#C8643C",
+   "wall": "#FAF9F6",
+   "roof_color": "#6E2A2C",
    "style": "fachwerk"
   },
   {
@@ -1932,8 +1925,8 @@
    ],
    "height": 7.99,
    "roof": "gable",
-   "wall": "#EEE6D6",
-   "roof_color": "#B9572F",
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
   {
@@ -1959,9 +1952,9 @@
    ],
    "height": 7.8,
    "roof": "gable",
-   "wall": "#EFE7D6",
-   "roof_color": "#A94F2E",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
+   "style": "fachwerk"
   },
   {
    "id": "haus_54",
@@ -1986,8 +1979,8 @@
    ],
    "height": 5.84,
    "roof": "gable",
-   "wall": "#EEE6D6",
-   "roof_color": "#C96A40",
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
   {
@@ -2013,8 +2006,8 @@
    ],
    "height": 7.43,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#D47546",
+   "wall": "#FAF9F6",
+   "roof_color": "#6E2A2C",
    "style": "fachwerk"
   },
   {
@@ -2040,9 +2033,9 @@
    ],
    "height": 5.97,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#A94F2E",
-   "style": "fachwerk"
+   "wall": "#F3EFE6",
+   "roof_color": "#83323A",
+   "style": "putz"
   },
   {
    "id": "haus_57",
@@ -2067,8 +2060,8 @@
    ],
    "height": 7.16,
    "roof": "gable",
-   "wall": "#EEE6D6",
-   "roof_color": "#B9572F",
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
   {
@@ -2094,9 +2087,9 @@
    ],
    "height": 6.77,
    "roof": "gable",
-   "wall": "#EFE7D6",
-   "roof_color": "#B9572F",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_59",
@@ -2121,9 +2114,9 @@
    ],
    "height": 7.38,
    "roof": "gable",
-   "wall": "#E9E2D2",
-   "roof_color": "#C8643C",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#83323A",
+   "style": "fachwerk"
   },
   {
    "id": "haus_60",
@@ -2148,8 +2141,8 @@
    ],
    "height": 6.85,
    "roof": "gable",
-   "wall": "#F1EEE6",
-   "roof_color": "#A94F2E",
+   "wall": "#FAF9F6",
+   "roof_color": "#83323A",
    "style": "putz"
   },
   {
@@ -2176,8 +2169,8 @@
    "height": 6.23,
    "roof": "gable",
    "wall": "#FAF9F6",
-   "roof_color": "#B9572F",
-   "style": "putz"
+   "roof_color": "#83323A",
+   "style": "fachwerk"
   },
   {
    "id": "haus_62",
@@ -2202,8 +2195,8 @@
    ],
    "height": 6.57,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#D47546",
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
    "style": "fachwerk"
   },
   {
@@ -2229,10 +2222,9 @@
    ],
    "height": 7.78,
    "roof": "gable",
-   "wall": "#F1EEE6",
-   "roof_color": "#B9572F",
-   "style": "putz",
-   "solar": true
+   "wall": "#EFEBE2",
+   "roof_color": "#7A2B30",
+   "style": "putz"
   },
   {
    "id": "haus_64",
@@ -2257,8 +2249,8 @@
    ],
    "height": 5.56,
    "roof": "gable",
-   "wall": "#EEE6D6",
-   "roof_color": "#C96A40",
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
   {
@@ -2284,10 +2276,9 @@
    ],
    "height": 7.31,
    "roof": "gable",
-   "wall": "#E9E2D2",
-   "roof_color": "#A94F2E",
-   "style": "putz",
-   "solar": true
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_66",
@@ -2313,7 +2304,7 @@
    "height": 5.84,
    "roof": "gable",
    "wall": "#FAF9F6",
-   "roof_color": "#C8643C",
+   "roof_color": "#8A3A36",
    "style": "putz"
   },
   {
@@ -2339,10 +2330,9 @@
    ],
    "height": 7.01,
    "roof": "gable",
-   "wall": "#F1EEE6",
-   "roof_color": "#D47546",
-   "style": "putz",
-   "solar": true
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_68",
@@ -2367,9 +2357,9 @@
    ],
    "height": 5.83,
    "roof": "gable",
-   "wall": "#F4E7C8",
-   "roof_color": "#C8643C",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
+   "style": "fachwerk"
   },
   {
    "id": "haus_69",
@@ -2395,9 +2385,8 @@
    "height": 6.11,
    "roof": "gable",
    "wall": "#FAF9F6",
-   "roof_color": "#D47546",
-   "style": "putz",
-   "solar": true
+   "roof_color": "#8A3A36",
+   "style": "fachwerk"
   },
   {
    "id": "haus_70",
@@ -2422,9 +2411,9 @@
    ],
    "height": 6.56,
    "roof": "gable",
-   "wall": "#F1EEE6",
-   "roof_color": "#C96A40",
-   "style": "putz"
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
+   "style": "fachwerk"
   },
   {
    "id": "haus_71",
@@ -2449,8 +2438,8 @@
    ],
    "height": 6.49,
    "roof": "gable",
-   "wall": "#F1EBDF",
-   "roof_color": "#D47546",
+   "wall": "#FAF9F6",
+   "roof_color": "#7A2B30",
    "style": "fachwerk"
   },
   {
@@ -2476,8 +2465,8 @@
    ],
    "height": 6.08,
    "roof": "gable",
-   "wall": "#F3EFE6",
-   "roof_color": "#A94F2E",
+   "wall": "#FAF9F6",
+   "roof_color": "#8A3A36",
    "style": "fachwerk"
   }
  ],

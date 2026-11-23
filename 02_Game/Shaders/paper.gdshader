@@ -1,6 +1,6 @@
 // Scribbler1120 – Papierwirkung über dem ganzen Bild
 shader_type canvas_item;
-uniform float strength : hint_range(0.0, 0.4) = 0.07;
+uniform float strength : hint_range(0.0, 0.4) = 0.2;
 uniform vec4 paper : source_color = vec4(0.98, 0.976, 0.965, 1.0);
 
 float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }

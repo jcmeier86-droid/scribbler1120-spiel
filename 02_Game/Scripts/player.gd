@@ -12,8 +12,8 @@ const SPRITE_PATH := "res://01_Character/Schreiberling/Reference/rueckansicht_fr
 @export var accel := 14.0
 @export var jump_velocity := 9.0
 @export var gravity := 24.0
-@export var cam_distance := 9.0
-@export var cam_pitch_deg := -22.0
+@export var cam_distance := 11.0
+@export var cam_pitch_deg := -24.0
 
 var touch_move := Vector2.ZERO        # von der Touch-Steuerung gesetzt
 var input_locked := false
@@ -68,7 +68,7 @@ func _setup_camera() -> void:
 	spring.add_excluded_object(get_rid())
 	cam_pivot.add_child(spring)
 	camera = Camera3D.new()
-	camera.fov = 55.0
+	camera.fov = 44.0
 	camera.far = 900.0
 	camera.near = 0.3
 	camera.current = true

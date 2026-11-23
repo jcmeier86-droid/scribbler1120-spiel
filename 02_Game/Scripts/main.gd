@@ -4,6 +4,9 @@ extends Node3D
 const AREA_FILE := "res://03_World/Geographic_Data/dorfmitte.json"
 const PAPER := preload("res://02_Game/Shaders/paper.gdshader")
 const TOON := preload("res://02_Game/Shaders/ink_toon.gdshader")
+const F_HEAD := preload("res://02_Game/UI/fonts/Fraunces-600.woff2")
+const F_TEXT := preload("res://02_Game/UI/fonts/Inter-400.woff2")
+const F_BOLD := preload("res://02_Game/UI/fonts/Inter-600.woff2")
 
 var data: Dictionary
 var terrain: Terrain
@@ -23,6 +26,7 @@ var joy_index := -1
 var cam_index := -1
 var joystick: Joystick
 var read_btn: Button
+var inkwell: Inkwell
 
 func _ready() -> void:
 	data = JSON.parse_string(FileAccess.get_file_as_string(AREA_FILE))
@@ -30,7 +34,7 @@ func _ready() -> void:
 	terrain = Terrain.new(data["water"], data.get("valley_extra", []))
 	var ground := ShaderMaterial.new()
 	ground.shader = TOON
-	ground.set_shader_parameter("albedo", Color("#8E9E6C"))
+	ground.set_shader_parameter("albedo", Color("#6F8A55"))
 	ground.set_shader_parameter("grass", true)
 	ground.set_shader_parameter("watercolor", 0.32)
 	terrain.build(self, ground)
@@ -42,6 +46,13 @@ func _ready() -> void:
 	for st in data["stations"]:
 		free_spots.append(st["pos"])
 	builder.build_trees(data["roads"], data["water"], data["buildings"], 90, 95.0, free_spots)
+	for b in data["buildings"]:
+		if b["id"] == "herrenhaus":
+			builder.domaene(b, self)
+	for st in data["stations"]:
+		if st["id"] == "platz":
+			builder.fountain(Vector2(st["pos"][0] + 5.0, st["pos"][1] - 8.0), self)
+	builder.scatter_props(data["roads"], free_spots, 26)
 	builder.build_stations(data["stations"])
 	builder.build_feathers(data["roads"], data.get("platforms", []))
 	for f in builder.feathers:
@@ -65,8 +76,11 @@ func _debug_args() -> void:
 		if a.begins_with("--at="):
 			for s in builder.stations:
 				if s.get_meta("station")["id"] == a.substr(5):
-					player.global_position = s.global_position + Vector3(0, 0.5, 6)
+					player.global_position = s.global_position + Vector3(0, 0.5, 3)
 					player.cam_pivot.global_position = player.global_position + Vector3(0, 2.2, 0)
+		if a == "--read":
+			await get_tree().create_timer(0.5).timeout
+			_interact()
 		if a.begins_with("--yaw="):
 			player.cam_yaw = deg_to_rad(float(a.substr(6)))
 		if a.begins_with("--shot="):
@@ -79,27 +93,30 @@ func _environment() -> void:
 	var env := Environment.new()
 	env.background_mode = Environment.BG_SKY
 	var sky_mat := ProceduralSkyMaterial.new()
-	sky_mat.sky_top_color = Color("#7FA6C0")
-	sky_mat.sky_horizon_color = Color("#E7E5DF")
-	sky_mat.ground_horizon_color = Color("#E7E5DF")
+	sky_mat.sky_top_color = Color("#E9E3D4")
+	sky_mat.sky_horizon_color = Color("#F6F2E8")
+	sky_mat.ground_horizon_color = Color("#F6F2E8")
 	sky_mat.ground_bottom_color = Color("#9DAE78")
 	sky_mat.sun_angle_max = 0.0
 	var sky := Sky.new()
 	sky.sky_material = sky_mat
 	env.sky = sky
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	env.ambient_light_color = Color("#E7E5DF")
-	env.ambient_light_energy = 0.45
-	env.fog_enabled = true
+	env.ambient_light_color = Color("#FAF9F6")
+	env.ambient_light_energy = 0.3
+	env.fog_enabled = false
 	env.fog_light_color = Color("#E7E5DF")
 	env.fog_density = 0.0012
 	var we := WorldEnvironment.new()
 	we.environment = env
 	add_child(we)
 	var sun := DirectionalLight3D.new()
-	sun.rotation_degrees = Vector3(-52, 35, 0)
-	sun.light_color = Color("#FFF4E0")
-	sun.light_energy = 0.95
+	sun.rotation_degrees = Vector3(-40, 35, 0)
+	sun.light_color = Color("#FFE6BC")
+	sun.light_energy = 0.82
+	sun.shadow_enabled = true
+	sun.shadow_opacity = 0.55
+	sun.directional_shadow_max_distance = 90.0
 	add_child(sun)
 
 ## Passanten auf den Gehwegen verteilen
@@ -129,7 +146,7 @@ func _spawn_passanten(count: int) -> void:
 		cyl.radial_segments = 24
 		pave.mesh = cyl
 		pave.position = Vector3(c.x, terrain.surface(c.x, c.y) - 0.05, c.y)
-		pave.material_override = builder.mat(Color("#C9C3B5"), true)
+		pave.material_override = builder.mat_ex(Color("#B4B2AA"), {"cobble": true}, false)
 		add_child(pave)
 		for k in range(3):
 			var loop := []
@@ -152,35 +169,69 @@ func _ui() -> void:
 	pm.shader = PAPER
 	paper.material = pm
 	layer.add_child(paper)
-	hud = _label(layer, Vector2(16, 12), 22)
-	place = _label(layer, Vector2(16, 44), 18)
+	var ui := Control.new()
+	ui.set_anchors_preset(Control.PRESET_FULL_RECT)
+	ui.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var th := Theme.new()
+	th.default_font = F_TEXT
+	ui.theme = th
+	layer.add_child(ui)
+	_ui_in(ui)
+
+func _ui_in(layer: Control) -> void:
+	inkwell = Inkwell.new()
+	layer.add_child(inkwell)
+	place = _label(layer, Vector2(24, 92), 26)
+	place.add_theme_font_override("font", F_HEAD)
 	place.text = data.get("name", "")
+	hud = _label(layer, Vector2(24, 128), 17)
 	hint = _label(layer, Vector2(16, 0), 20)
 	hint.anchor_top = 1.0
 	hint.anchor_bottom = 1.0
-	hint.offset_top = -150
+	hint.offset_top = -262
+	hint.offset_left = 24
 	hint.visible = false
 	dialog = PanelContainer.new()
 	dialog.anchor_left = 0.5
 	dialog.anchor_right = 0.5
-	dialog.offset_left = -300
-	dialog.offset_right = 300
+	dialog.offset_left = -320
+	dialog.offset_right = 320
 	dialog.offset_top = 70
 	var sb := StyleBoxFlat.new()
 	sb.bg_color = Color("#FAF9F6")
 	sb.border_color = Color("#1E1E1C")
-	sb.set_border_width_all(3)
-	sb.set_corner_radius_all(18)
-	sb.set_content_margin_all(18)
+	sb.set_border_width_all(2)
+	sb.set_corner_radius_all(4)
+	sb.set_content_margin_all(5)
+	sb.shadow_color = Color(0.12, 0.12, 0.11, 0.35)
+	sb.shadow_offset = Vector2(0, 6)
+	sb.shadow_size = 4
 	dialog.add_theme_stylebox_override("panel", sb)
+	var inner := PanelContainer.new()
+	var sb2 := StyleBoxFlat.new()
+	sb2.bg_color = Color("#FAF9F6")
+	sb2.border_color = Color("#1E1E1C")
+	sb2.set_border_width_all(1)
+	sb2.set_content_margin_all(16)
+	inner.add_theme_stylebox_override("panel", sb2)
+	dialog.add_child(inner)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 16)
+	inner.add_child(row)
+	var deco := NotebookDeco.new()
+	deco.custom_minimum_size = Vector2(56, 70)
+	row.add_child(deco)
 	dialog_text = RichTextLabel.new()
+	dialog_text.add_theme_font_override("normal_font", F_TEXT)
+	dialog_text.add_theme_font_override("bold_font", F_HEAD)
+	dialog_text.add_theme_font_override("italics_font", F_TEXT)
 	dialog_text.bbcode_enabled = true
 	dialog_text.fit_content = true
-	dialog_text.custom_minimum_size = Vector2(560, 0)
+	dialog_text.custom_minimum_size = Vector2(500, 0)
 	dialog_text.add_theme_color_override("default_color", Color("#1E1E1C"))
 	dialog_text.add_theme_font_size_override("normal_font_size", 20)
 	dialog_text.add_theme_font_size_override("bold_font_size", 26)
-	dialog.add_child(dialog_text)
+	row.add_child(dialog_text)
 	dialog.visible = false
 	layer.add_child(dialog)
 	joystick = Joystick.new()
@@ -209,6 +260,7 @@ func _round_button(text: String, bg: Color, fg: Color, size: int) -> Button:
 	b.anchor_top = 1.0
 	b.anchor_bottom = 1.0
 	b.focus_mode = Control.FOCUS_NONE
+	b.add_theme_font_override("font", F_HEAD)
 	b.add_theme_font_size_override("font_size", 28 if size > 110 else 22)
 	b.add_theme_color_override("font_color", fg)
 	b.add_theme_color_override("font_pressed_color", fg)
@@ -235,7 +287,10 @@ func _label(parent: Node, pos: Vector2, size: int) -> Label:
 	return l
 
 func _update_hud() -> void:
-	hud.text = "Federn %d / %d     Geschichten %d / %d" % [feathers_got, builder.feathers.size(), found_pages.size(), builder.stations.size()]
+	hud.text = "Federn %d / %d  ·  Geschichten %d / %d" % [feathers_got, builder.feathers.size(), found_pages.size(), builder.stations.size()]
+	if inkwell:
+		var total := builder.feathers.size() + builder.stations.size()
+		inkwell.set_progress(float(feathers_got + found_pages.size()) / maxf(total, 1.0))
 
 # ---------------------------------------------------------------- Spiel
 func _on_feather(body: Node, f: Area3D) -> void:
