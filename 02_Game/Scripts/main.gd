@@ -46,6 +46,7 @@ func _ready() -> void:
 	var st: Array = data["start"]
 	player.position = Vector3(st[0], terrain.surface(st[0], st[1]) + 0.5, st[1])
 	add_child(player)
+	_spawn_passanten(14)
 	_ui()
 	_update_hud()
 	_debug_args()
@@ -84,6 +85,45 @@ func _environment() -> void:
 	sun.light_color = Color("#FFF4E0")
 	sun.light_energy = 1.05
 	add_child(sun)
+
+## Passanten auf den Gehwegen verteilen
+func _spawn_passanten(count: int) -> void:
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 1120
+	var roads: Array = data["roads"]
+	for i in range(count):
+		var r: Dictionary = roads[i % roads.size()]
+		if r["points"].size() < 2:
+			continue
+		var p := Passant.new()
+		p.name = "Passant_%d" % i
+		add_child(p)
+		p.setup(r, 1.0 if i % 2 == 0 else -1.0, builder, player, rng)
+	# Plätze: gepflasterte Fläche und Leute, die dort ihre Runden drehen
+	for st in data["stations"]:
+		if not st["id"] in ["platz", "amt"]:
+			continue
+		var c := Vector2(st["pos"][0], st["pos"][1] - 8.0)
+		var rad := 12.0 if st["id"] == "platz" else 8.0
+		var pave := MeshInstance3D.new()
+		var cyl := CylinderMesh.new()
+		cyl.top_radius = rad + 3.0
+		cyl.bottom_radius = rad + 3.0
+		cyl.height = 0.6
+		cyl.radial_segments = 24
+		pave.mesh = cyl
+		pave.position = Vector3(c.x, terrain.surface(c.x, c.y) - 0.05, c.y)
+		pave.material_override = builder.mat(Color("#C9C3B5"), true)
+		add_child(pave)
+		for k in range(3):
+			var loop := []
+			for a in range(9):
+				var ang := TAU * a / 8.0 + k
+				var r2 := rad * (0.45 + 0.25 * k)
+				loop.append([c.x + cos(ang) * r2, c.y + sin(ang) * r2])
+			var walker := Passant.new()
+			add_child(walker)
+			walker.setup({"points": loop, "width": 0.0}, 0.0, builder, player, rng)
 
 # ---------------------------------------------------------------- Oberfläche
 func _ui() -> void:
