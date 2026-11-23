@@ -1,4 +1,4 @@
-name: Web-Version bauen und veröffentlichen
+name: Spiel bauen (Web und Windows) und veröffentlichen
 
 on:
   push:
@@ -39,6 +39,14 @@ jobs:
           mkdir -p build/web
           "$GODOT" --headless --path . --export-release "Web" build/web/index.html
           ls -la build/web
+      - name: Windows-Version exportieren
+        run: |
+          mkdir -p build/windows
+          "$GODOT" --headless --path . --export-release "Windows" build/windows/Scribbler1120.exe
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Scribbler1120-Windows
+          path: build/windows
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build/web
