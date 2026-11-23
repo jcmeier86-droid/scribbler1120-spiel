@@ -19,8 +19,10 @@ var hint: Label
 var place: Label
 var dialog: PanelContainer
 var dialog_text: RichTextLabel
-var joy_origin := Vector2.ZERO
 var joy_index := -1
+var cam_index := -1
+var joystick: Joystick
+var read_btn: Button
 
 func _ready() -> void:
 	data = JSON.parse_string(FileAccess.get_file_as_string(AREA_FILE))
@@ -28,12 +30,18 @@ func _ready() -> void:
 	terrain = Terrain.new(data["water"], data.get("valley_extra", []))
 	var ground := ShaderMaterial.new()
 	ground.shader = TOON
-	ground.set_shader_parameter("albedo", Color("#A2AC86"))
+	ground.set_shader_parameter("albedo", Color("#8E9E6C"))
+	ground.set_shader_parameter("grass", true)
+	ground.set_shader_parameter("watercolor", 0.32)
 	terrain.build(self, ground)
 	builder = WorldBuilder.new(terrain, self)
 	builder.build_roads(data["roads"], data["water"])
 	builder.build_buildings(data["buildings"])
 	builder.build_platforms(data.get("platforms", []))
+	var free_spots: Array = [data["start"]]
+	for st in data["stations"]:
+		free_spots.append(st["pos"])
+	builder.build_trees(data["roads"], data["water"], data["buildings"], 90, 95.0, free_spots)
 	builder.build_stations(data["stations"])
 	builder.build_feathers(data["roads"], data.get("platforms", []))
 	for f in builder.feathers:
@@ -69,21 +77,29 @@ func _debug_args() -> void:
 
 func _environment() -> void:
 	var env := Environment.new()
-	env.background_mode = Environment.BG_COLOR
-	env.background_color = Color("#BFD0D8")
+	env.background_mode = Environment.BG_SKY
+	var sky_mat := ProceduralSkyMaterial.new()
+	sky_mat.sky_top_color = Color("#7FA6C0")
+	sky_mat.sky_horizon_color = Color("#E7E5DF")
+	sky_mat.ground_horizon_color = Color("#E7E5DF")
+	sky_mat.ground_bottom_color = Color("#9DAE78")
+	sky_mat.sun_angle_max = 0.0
+	var sky := Sky.new()
+	sky.sky_material = sky_mat
+	env.sky = sky
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	env.ambient_light_color = Color("#E7E5DF")
 	env.ambient_light_energy = 0.45
 	env.fog_enabled = true
 	env.fog_light_color = Color("#E7E5DF")
-	env.fog_density = 0.0018
+	env.fog_density = 0.0012
 	var we := WorldEnvironment.new()
 	we.environment = env
 	add_child(we)
 	var sun := DirectionalLight3D.new()
 	sun.rotation_degrees = Vector3(-52, 35, 0)
 	sun.light_color = Color("#FFF4E0")
-	sun.light_energy = 1.05
+	sun.light_energy = 0.95
 	add_child(sun)
 
 ## Passanten auf den Gehwegen verteilen
@@ -167,19 +183,46 @@ func _ui() -> void:
 	dialog.add_child(dialog_text)
 	dialog.visible = false
 	layer.add_child(dialog)
-	var jump := Button.new()
-	jump.text = "Hopp!"
-	jump.anchor_left = 1.0
-	jump.anchor_right = 1.0
-	jump.anchor_top = 1.0
-	jump.anchor_bottom = 1.0
-	jump.offset_left = -130
-	jump.offset_top = -130
+	joystick = Joystick.new()
+	layer.add_child(joystick)
+	var jump := _round_button("Hopp!", Color("#7A2B30"), Color("#FAF9F6"), 130)
+	jump.offset_left = -154
+	jump.offset_top = -154
 	jump.offset_right = -24
 	jump.offset_bottom = -24
-	jump.add_theme_font_size_override("font_size", 26)
-	jump.pressed.connect(func(): player.request_jump())
+	jump.button_down.connect(func(): player.request_jump())
 	layer.add_child(jump)
+	read_btn = _round_button("Lesen", Color("#FAF9F6"), Color("#1E1E1C"), 100)
+	read_btn.offset_left = -270
+	read_btn.offset_top = -124
+	read_btn.offset_right = -170
+	read_btn.offset_bottom = -24
+	read_btn.visible = false
+	read_btn.pressed.connect(_interact)
+	layer.add_child(read_btn)
+
+func _round_button(text: String, bg: Color, fg: Color, size: int) -> Button:
+	var b := Button.new()
+	b.text = text
+	b.anchor_left = 1.0
+	b.anchor_right = 1.0
+	b.anchor_top = 1.0
+	b.anchor_bottom = 1.0
+	b.focus_mode = Control.FOCUS_NONE
+	b.add_theme_font_size_override("font_size", 28 if size > 110 else 22)
+	b.add_theme_color_override("font_color", fg)
+	b.add_theme_color_override("font_pressed_color", fg)
+	b.add_theme_color_override("font_hover_color", fg)
+	for state in ["normal", "hover", "pressed", "focus"]:
+		var sb := StyleBoxFlat.new()
+		sb.bg_color = bg.darkened(0.15) if state == "pressed" else bg
+		sb.border_color = Color("#1E1E1C")
+		sb.set_border_width_all(4)
+		sb.set_corner_radius_all(size)
+		sb.shadow_color = Color(0.12, 0.12, 0.11, 0.5)
+		sb.shadow_offset = Vector2(0, 5)
+		b.add_theme_stylebox_override(state, sb)
+	return b
 
 func _label(parent: Node, pos: Vector2, size: int) -> Label:
 	var l := Label.new()
@@ -206,16 +249,22 @@ func _on_feather(body: Node, f: Area3D) -> void:
 func _on_station_enter(body: Node, s: Area3D) -> void:
 	if body == player:
 		near_station = s
-		hint.text = "Enter / F: Geschichte lesen – " + s.get_meta("station")["title"]
+		hint.text = s.get_meta("station")["title"] + " – Enter / F / Lesen"
 		hint.visible = true
+		read_btn.visible = true
 
 func _on_station_exit(body: Node, s: Area3D) -> void:
 	if body == player and near_station == s:
 		near_station = null
 		hint.visible = false
+		read_btn.visible = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
+		_interact()
+	_touch(event)
+
+func _interact() -> void:
 		if dialog.visible:
 			_next_line()
 		elif near_station:
@@ -228,16 +277,37 @@ func _unhandled_input(event: InputEvent) -> void:
 			dialog_text.set_meta("title", st["title"])
 			player.input_locked = true
 			_next_line()
-	# Touch: linke Bildschirmhälfte = Joystick
+
+
+## Touch: Joystick unten links, Wischen in der rechten Hälfte dreht die Kamera, Tippen auf die Blase blättert weiter
+func _touch(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
-		if event.pressed and event.position.x < get_viewport().get_visible_rect().size.x * 0.45 and joy_index == -1:
-			joy_index = event.index
-			joy_origin = event.position
-		elif not event.pressed and event.index == joy_index:
-			joy_index = -1
-			player.touch_move = Vector2.ZERO
-	elif event is InputEventScreenDrag and event.index == joy_index:
-		player.touch_move = ((event.position - joy_origin) / 70.0).limit_length(1.0)
+		var w := get_viewport().get_visible_rect().size.x
+		if event.pressed:
+			if dialog.visible:
+				_next_line()
+			elif joy_index == -1 and joystick.hit(event.position):
+				joy_index = event.index
+				_joy(event.position)
+			elif cam_index == -1 and event.position.x > w * 0.45:
+				cam_index = event.index
+		else:
+			if event.index == joy_index:
+				joy_index = -1
+				joystick.set_knob(Vector2.ZERO)
+				player.touch_move = Vector2.ZERO
+			if event.index == cam_index:
+				cam_index = -1
+	elif event is InputEventScreenDrag:
+		if event.index == joy_index:
+			_joy(event.position)
+		elif event.index == cam_index:
+			player.cam_yaw -= event.relative.x * 0.008
+
+func _joy(pos: Vector2) -> void:
+	var v := ((pos - joystick.center()) / joystick.radius()).limit_length(1.0)
+	joystick.set_knob(v)
+	player.touch_move = v
 
 func _next_line() -> void:
 	if dialog_lines.is_empty():

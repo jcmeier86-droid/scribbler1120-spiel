@@ -22,7 +22,7 @@ func _init(t: Terrain, parent: Node3D) -> void:
 
 ## Tusche-Material mit Kontur, je Farbe nur einmal erzeugt.
 func mat(color: Color, outline := true, tex: Texture2D = null) -> ShaderMaterial:
-	var key := "%s|%s|%s" % [color.to_html(), outline, tex.resource_path if tex else ""]
+	var key := "%s|%s|%s" % [color.to_html(), outline, tex.get_instance_id() if tex else 0]
 	if _mats.has(key):
 		return _mats[key]
 	var m := ShaderMaterial.new()
@@ -56,6 +56,37 @@ static func tri(st: SurfaceTool, a: Vector3, b: Vector3, c: Vector3, outward: Ve
 	st.set_normal(nn); st.set_uv(ua); st.add_vertex(a)
 	st.set_normal(nn); st.set_uv(ub); st.add_vertex(b)
 	st.set_normal(nn); st.set_uv(uc); st.add_vertex(c)
+
+## Variante des Tusche-Materials mit Zusatz-Parametern (Ziegelreihen, Gras)
+func mat_ex(color: Color, params: Dictionary) -> ShaderMaterial:
+	var key := "ex|%s|%s" % [color.to_html(), str(params)]
+	if _mats.has(key):
+		return _mats[key]
+	var m: ShaderMaterial = mat(color, true).duplicate()
+	m.next_pass = mat(color, true).next_pass
+	for k in params:
+		m.set_shader_parameter(k, params[k])
+	_mats[key] = m
+	return m
+
+var _window_tex: Texture2D = null
+## Gezeichnetes Fenster: weißer Rahmen, Sprossenkreuz, blau-graues Glas mit Spiegelung
+func window_texture() -> Texture2D:
+	if _window_tex:
+		return _window_tex
+	var img := Image.create(64, 80, false, Image.FORMAT_RGB8)
+	img.fill(Color("#1E1E1C"))
+	img.fill_rect(Rect2i(3, 3, 58, 74), Color("#FAF9F6"))
+	img.fill_rect(Rect2i(9, 9, 46, 62), Color("#8FA6B4"))
+	img.fill_rect(Rect2i(9, 9, 46, 26), Color("#A9BCC6"))
+	img.fill_rect(Rect2i(30, 9, 4, 62), Color("#FAF9F6"))
+	img.fill_rect(Rect2i(9, 38, 46, 4), Color("#FAF9F6"))
+	for k in range(10):
+		img.set_pixel(13 + k, 13 + k, Color("#DCE6EA"))
+		img.set_pixel(14 + k, 13 + k, Color("#DCE6EA"))
+	img.fill_rect(Rect2i(0, 74, 64, 6), Color("#C9C3B5"))
+	_window_tex = ImageTexture.create_from_image(img)
+	return _window_tex
 
 # ---------------------------------------------------------------- Straßen und Wasser
 func _strip(points: Array, width: float, lift: float, color: Color, parent: Node3D, dash := false) -> void:
@@ -237,11 +268,11 @@ func _windows(fp: Array[Vector2], y0: float, top: float, parent: Node3D, landmar
 				var hh := 1.3 if not landmark else 2.0
 				var q := [p - dir * w * 0.5, p + dir * w * 0.5]
 				var v := [Vector3(q[0].x, y, q[0].y), Vector3(q[1].x, y, q[1].y), Vector3(q[1].x, y + hh, q[1].y), Vector3(q[0].x, y + hh, q[0].y)]
-				tri(st, v[0], v[1], v[2], Vector3(out.x, 0, out.y))
-				tri(st, v[0], v[2], v[3], Vector3(out.x, 0, out.y))
+				tri(st, v[0], v[1], v[2], Vector3(out.x, 0, out.y), [Vector2(0, 1), Vector2(1, 1), Vector2(1, 0)])
+				tri(st, v[0], v[2], v[3], Vector3(out.x, 0, out.y), [Vector2(0, 1), Vector2(1, 0), Vector2(0, 0)])
 	var mi := MeshInstance3D.new()
 	mi.mesh = st.commit()
-	mi.material_override = mat(Color("#CBD5D8"), true)
+	mi.material_override = mat(Color.WHITE, false, window_texture())
 	parent.add_child(mi)
 
 func _roof(fp: Array[Vector2], top: float, kind: String, color: Color, parent: Node3D) -> void:
@@ -283,7 +314,7 @@ func _roof(fp: Array[Vector2], top: float, kind: String, color: Color, parent: N
 		tri(st, t3[0], t3[1], t3[2], out)
 	var mi := MeshInstance3D.new()
 	mi.mesh = st.commit()
-	mi.material_override = mat(color, true)
+	mi.material_override = mat_ex(color, {"stripes": 0.42 if color.r > 0.5 else 0.6})
 	parent.add_child(mi)
 
 func _basilica(fp: Array[Vector2], base: float, h: float, parent: Node3D) -> void:
@@ -399,6 +430,102 @@ func build_platforms(list: Array) -> void:
 		body.add_child(cs)
 		body.position = Vector3(c.x, g + h * 0.5 - 0.5, c.y)
 		root.add_child(body)
+
+# ---------------------------------------------------------------- Bäume und Büsche
+func _dist_seg(p: Vector2, a: Vector2, b: Vector2) -> float:
+	var ab := b - a
+	var t := clampf((p - a).dot(ab) / maxf(ab.length_squared(), 0.0001), 0.0, 1.0)
+	return p.distance_to(a + ab * t)
+
+func build_trees(roads: Array, water: Array, buildings: Array, count: int, area := 95.0, keep_free: Array = []) -> void:
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 2026
+	var segs: Array = []
+	for r in roads + water:
+		var pts: Array = r["points"]
+		for i in range(pts.size() - 1):
+			segs.append([Vector2(pts[i][0], pts[i][1]), Vector2(pts[i + 1][0], pts[i + 1][1]), r.get("width", 3.0) * 0.5 + 2.5])
+	var centers: Array[Vector2] = []
+	for b in buildings:
+		var c := Vector2.ZERO
+		for p in b["footprint"]:
+			c += Vector2(p[0], p[1])
+		centers.append(c / b["footprint"].size())
+	var node := Node3D.new()
+	node.name = "Baeume"
+	root.add_child(node)
+	var greens := ["#4F7D52", "#2E6B3E", "#6E8F5E", "#5E8A4A"]
+	var placed := 0
+	var tries := 0
+	while placed < count and tries < count * 30:
+		tries += 1
+		var p := Vector2(rng.randf_range(-area, area), rng.randf_range(-area * 1.4, area * 1.4))
+		var ok := true
+		for s in segs:
+			if _dist_seg(p, s[0], s[1]) < s[2]:
+				ok = false
+				break
+		if ok:
+			for f in keep_free:
+				if p.distance_to(Vector2(f[0], f[1])) < 13.0:
+					ok = false
+		if ok:
+			for c in centers:
+				if p.distance_to(c) < 8.0:
+					ok = false
+					break
+		if not ok:
+			continue
+		placed += 1
+		var y := terrain.surface(p.x, p.y)
+		var big := rng.randf() < 0.7
+		var s := rng.randf_range(0.8, 1.35)
+		var tree := StaticBody3D.new()
+		tree.position = Vector3(p.x, y, p.y)
+		node.add_child(tree)
+		var green: String = greens[rng.randi() % greens.size()]
+		if big:
+			var trunk := MeshInstance3D.new()
+			var cm := CylinderMesh.new()
+			cm.top_radius = 0.18 * s
+			cm.bottom_radius = 0.28 * s
+			cm.height = 3.0 * s
+			trunk.mesh = cm
+			trunk.position.y = 1.5 * s
+			trunk.material_override = mat(Color("#6E4A33"), true)
+			tree.add_child(trunk)
+			for k in range(4):
+				var blob := MeshInstance3D.new()
+				var sm := SphereMesh.new()
+				var r := rng.randf_range(1.2, 1.9) * s
+				sm.radius = r
+				sm.height = r * 1.8
+				sm.radial_segments = 10
+				sm.rings = 6
+				blob.mesh = sm
+				blob.position = Vector3(rng.randf_range(-1, 1) * s, (3.4 + rng.randf_range(0, 1.6)) * s, rng.randf_range(-1, 1) * s)
+				blob.material_override = mat(Color(green), true)
+				tree.add_child(blob)
+			var cs := CollisionShape3D.new()
+			var cyl := CylinderShape3D.new()
+			cyl.radius = 0.35 * s
+			cyl.height = 3.0 * s
+			cs.shape = cyl
+			cs.position.y = 1.5 * s
+			tree.add_child(cs)
+		else:
+			for k in range(3):
+				var blob := MeshInstance3D.new()
+				var sm := SphereMesh.new()
+				var r := rng.randf_range(0.55, 0.9) * s
+				sm.radius = r
+				sm.height = r * 1.6
+				sm.radial_segments = 8
+				sm.rings = 5
+				blob.mesh = sm
+				blob.position = Vector3(k * 0.7 * s - 0.7 * s, r * 0.6, rng.randf_range(-0.3, 0.3))
+				blob.material_override = mat(Color(green), true)
+				tree.add_child(blob)
 
 # ---------------------------------------------------------------- Stationen und Federn
 func build_stations(list: Array) -> void:
